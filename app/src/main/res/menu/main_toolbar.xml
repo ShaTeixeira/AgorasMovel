@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/perfil"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="Perfil"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/tema"
+        android:icon="@drawable/ic_baseline_emoji_objects_24"
+        android:title="Sugerir Tema"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/oldDebate"
+        android:icon="@drawable/ic_baseline_folder_open_24"
+        android:title="Debates antigos"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/ajuda"
+        android:icon="@drawable/ic_baseline_help_24"
+        android:title="Ajuda"
+        app:showAsAction="always" />
+</menu>
