@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ágoras</string>
+    <string name="titulovotacao">Vote no debate do próximo mês!</string>
+    <string name="votebotao">Vote no proximo tema!</string>
 </resources>
