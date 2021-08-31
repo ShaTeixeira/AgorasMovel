@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,6 +22,17 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Button button = findViewById(R.id.btVote);
+
+        if(Config.getLogin(MainActivity.this).isEmpty()) {
+            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else {
+            Intent i = new Intent(MainActivity.this, GetDataActivity.class);
+            startActivity(i);
+            finish();
+        }
 
     }
 

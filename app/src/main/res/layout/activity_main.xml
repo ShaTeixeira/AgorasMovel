@@ -39,11 +39,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:background="@drawable/button"
         android:text="@string/votebotao"
+        app:backgroundTint="@android:color/transparent"
+        app:backgroundTintMode="add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbMain"
-        android:background="@drawable/button">
-    </Button>
+        app:layout_constraintTop_toBottomOf="@+id/tbMain"></Button>
         //android:onClick="" />
 </androidx.constraintlayout.widget.ConstraintLayout>
