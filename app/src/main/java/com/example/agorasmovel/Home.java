@@ -5,38 +5,42 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = findViewById(R.id.tbMain);
+        setContentView(R.layout.activity_home);
+        Toolbar toolbar = findViewById(R.id.tbHome);
         setSupportActionBar(toolbar);
 
-        Button button = findViewById(R.id.btVote);
+        Button button = findViewById(R.id.btVotar);
+        /*PARA O BOTAO MUDAR DE PAGINA SUBSTITUA O "VOTAR" PELO NOME DA ACTIVITY
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, VOTAR.class);
+                startActivity(i);
+            }
+        });*/
 
-        if(Config.getLogin(MainActivity.this).isEmpty()) {
-            Intent i = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else {
-            Intent i = new Intent(MainActivity.this, Home.class);
-            startActivity(i);
-            finish();
-        }
+        Button button2 = findViewById(R.id.btDesc);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, Debate.class);
+                startActivity(i);
+            }
+        });
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);

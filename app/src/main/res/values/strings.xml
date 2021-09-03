@@ -11,4 +11,11 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string name="tema_debate">A importância da representatividade na publicidade.</string>
+    <string name="iniciar_debate">Iniciar debate</string>
+    <string name="titulo">A importância da representatividade na publicidade</string>
+    <string name="desc">Desde seus primórdios a publicidade se utiliza de diversas estratégias para chamar atenção do consumidor, uma delas é a utilização de personagens conhecidos para estampar seus anúncios. O problema é que o padrão visual construído não representa a maioria das pessoas que são impactadas pelas campanhas diariamente. Representatividade importa e muito, principalmente na publicidade! De acordo com pesquisa realizada pelo Instituto Locomotiva em 2017, 76% dos brasileiros não se vê representado pelas propagandas exibidas na televisão e espera mais das marcas. Estando mais propenso a confiar em negócios que abordam a diversidade do brasileiro, e não segue os estereótipos de beleza.
+    Vale ressaltar ainda que a tecnologia vem deixando o marketing cada vez mais personalizado, e isso faz com que a diversidade na publicidade seja cada vez mais importante. Anúncios precisam vir com a identidade do cliente, passível de gerar uma empatia com o prospect.
+    </string>
 </resources>

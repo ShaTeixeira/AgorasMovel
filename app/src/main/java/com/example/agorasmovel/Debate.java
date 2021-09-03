@@ -4,37 +4,23 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class Debate extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = findViewById(R.id.tbMain);
+        setContentView(R.layout.activity_debate);
+        Toolbar toolbar = findViewById(R.id.tbDebate);
         setSupportActionBar(toolbar);
-
-        Button button = findViewById(R.id.btVote);
-
-        if(Config.getLogin(MainActivity.this).isEmpty()) {
-            Intent i = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else {
-            Intent i = new Intent(MainActivity.this, Home.class);
-            startActivity(i);
-            finish();
-        }
-
+        TextView yourTextView=findViewById(R.id.tvDescDebate);
+        yourTextView.setMovementMethod(new ScrollingMovementMethod());
     }
 
     @Override

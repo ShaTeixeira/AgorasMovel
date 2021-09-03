@@ -16,8 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="#FFFFFF"
-        app:subtitleTextColor="#FFFFFF"/>
+        app:subtitleTextColor="#FFFFFF"
+        app:titleTextColor="#FFFFFF" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDebate"
@@ -36,8 +36,8 @@
 
     <Button
         android:id="@+id/btVote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="169dp"
+        android:layout_height="38dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/button"
         android:text="@string/votebotao"
