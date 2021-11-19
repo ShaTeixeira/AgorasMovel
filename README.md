@@ -15,9 +15,12 @@ Espaço para debate de temas, os quais são definidos por meio de votações da 
 - [Modelos de Classes](https://docs.google.com/presentation/d/1-U3jRAmNQQhDzBW3ddaMCUKH6gQq-bVBvIQWRq_2tJc/edit#slide=id.p)
 - [Requisitos Funcionais e não Funcionais](https://docs.google.com/presentation/d/1jW-Cbx0AoiGDH5Zu0EbL8PuKjo8sWQ3KjcSkikphRSc/edit#slide=id.ge366d3efa5_0_8)
 - [Roadmap](https://docs.google.com/presentation/d/18BQcBQpc58xfuZgjkS-_zyzDlwWoOK4J3MBIofsjHAo/edit#slide=id.p)
+- [BackLog de Requisitos](https://docs.google.com/presentation/d/1jW-Cbx0AoiGDH5Zu0EbL8PuKjo8sWQ3KjcSkikphRSc/edit#slide=id.p)
 - [DER versão 1](https://docs.google.com/presentation/d/1rSS3tW8vCOB5hSUD1Azbey_I8t6m8jFMYslBQ8r2H8U/edit#slide=id.gf72512d738_0_87)
 - [DER versão 2](https://docs.google.com/presentation/d/1rSS3tW8vCOB5hSUD1Azbey_I8t6m8jFMYslBQ8r2H8U/edit#slide=id.gfcc85451d1_0_12)
 - [Banco de Dados](https://docs.google.com/presentation/d/1CrR9VVsL2LR1gIJw46n70WQc1p43m60OOj6Z2XKNYRA/edit#slide=id.p)
+- [Planejamento de 2semanas](https://docs.google.com/presentation/d/1HCZcKTDFiOLWNo3-g1Tg_H0uJ6kc4tJNJN0-eRCLJM4/edit#slide=id.p)
+
 
 ## Projeto Integrador 
 - [PMC](https://docs.google.com/presentation/d/16kT38kjHIuf2yD1MX85rqYa5F9df-fTbPv3vTfjTOHM/edit#slide=id.ge20873777b_0_0)
