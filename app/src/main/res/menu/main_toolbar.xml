@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:titleTextColor="#FFFFFF"
+    app:subtitleTextColor="#FFFFFF">
 
 
     <item
         android:id="@+id/perfil"
         android:icon="@drawable/ic_baseline_account_circle_24"
         android:title="Perfil"
+        app:showAsAction="always" />
+    <item
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_how_to_vote_24"
+        android:title="vote"
+        android:visible="true"
         app:showAsAction="always" />
     <item
         android:id="@+id/tema"

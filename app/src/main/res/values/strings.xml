@@ -1,21 +1,65 @@
 <resources>
     <string name="app_name">Ágoras</string>
-    <string name="titulovotacao">Vote no debate do próximo mês!</string>
-    <string name="votebotao">Vote no proximo tema!</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
 
-    <string name="tema_debate">A importância da representatividade na publicidade.</string>
-    <string name="iniciar_debate">Iniciar debate</string>
-    <string name="titulo">A importância da representatividade na publicidade</string>
-    <string name="desc">Desde seus primórdios a publicidade se utiliza de diversas estratégias para chamar atenção do consumidor, uma delas é a utilização de personagens conhecidos para estampar seus anúncios. O problema é que o padrão visual construído não representa a maioria das pessoas que são impactadas pelas campanhas diariamente. Representatividade importa e muito, principalmente na publicidade! De acordo com pesquisa realizada pelo Instituto Locomotiva em 2017, 76% dos brasileiros não se vê representado pelas propagandas exibidas na televisão e espera mais das marcas. Estando mais propenso a confiar em negócios que abordam a diversidade do brasileiro, e não segue os estereótipos de beleza.
-    Vale ressaltar ainda que a tecnologia vem deixando o marketing cada vez mais personalizado, e isso faz com que a diversidade na publicidade seja cada vez mais importante. Anúncios precisam vir com a identidade do cliente, passível de gerar uma empatia com o prospect.
-    </string>
+    <string name="tvVote">Vote no próximo debate!</string>
+    <string name="tvThemeVote">Nenhum problema pode ser resolvido pelo mesmo estado de consciência que o criou. Nenhum problema pode ser resolvido pelo mesmo estado de consciência que o criou. Nenhum problema pode ser resolvido pelo mesmo estado de consciência que o criou. Nenhum problema pode ser resolvido pelo mesmo estado de consciência que o criou. Nenhum problema pode ser resolvido pelo mesmo estado de consciência que o criou</string>
+    <string name="btnVote">Votar</string>
+
+    <string name="tvtitleTheme"> A IMPORTÂNCIA DA REPRESENTATIVIDADE NA PUBLICIDADE</string>
+    <string name="tvdescTheme">Desde seus primórdios a publicidade se utiliza de diversas estratégias para chamar atenção do consumidor, uma delas é a utilização de personagens conhecidos para estampar seus anúncios. O problema é que o padrão visual construído não representa a maioria das pessoas que são impactadas pelas campanhas diariamente. Representatividade importa e muito, principalmente na publicidade! De acordo com pesquisa realizada pelo Instituto Locomotiva em 2017, 76% dos brasileiros não se vê representado pelas propagandas exibidas na televisão e espera mais das marcas. Estando mais propenso a confiar em negócios que abordam a diversidade do brasileiro, e não segue os estereótipos de beleza. Vale ressaltar ainda que a tecnologia vem deixando o marketing cada vez mais personalizado, e isso faz com que a diversidade na publicidade seja cada vez mais importante. Anúncios precisam vir com a identidade do cliente, passível de gerar uma empatia com o prospect. </string>
+
+    <string name="tvOld">Senha Atual</string>
+    <string name="tvNew">Nova Senha</string>
+    <string name="tvSaveNew">Confirmar nova senha</string>
+    <string name="btnSave">Salvar</string>
+
+    <string name="etEditName">Nome</string>
+    <string name="etEditNameUser">Nome de Usuário</string>
+    <string name="etEditEmail">E-mail</string>
+    <string name="etEditBio">Biografia</string>
+    <string name="btnEditSave">Salvar</string>
+
+    <string name="etEmailLogin">E-mail</string>
+    <string name="etPassword">Senha</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnRegisterNewUser">Cadastrar Novo Usuário</string>
+
+    <string name="tvDebates">Debates Antigos</string>
+    <string name="tvOldDebates">Diferenças e hierarquias nas atuais relações de gênero no Brasil</string>
+    <string name="tvOldDebates2">Os limites da cultura do cancelamento no meio virtual</string>
+    <string name="tvOldDebates3">Leitura na juventude: desafios da era da informação</string>
+    <string name="tvOldDebates4">A importância da agricultura familiar no Brasil</string>
+
+    <string name="tvHelp">Ajuda</string>
+    <string name="tvRules">Regras de convivência</string>
+    <string name="etRules">Para manter o debate saudável, é importante que os usuários respeitem o posicionamento de outros da comunidade e, quando achar necessário, rebater com os seus argumentos. Não será tolerado: racismo, homofobia, xenofobia, machismo ou posicionamentos que incitem à violência.</string>
+    <string name="tvHelpRules">Como funciona?</string>
+    <string name="etHelp">O aplicativo funciona em uma periodicidade de eventos, variando entre a votação e o debate. Na primeira semana será aberta uma votação com dois temas enviados pelos usuários. Aquele com maioria de votos será levado ao debate, que ficará disponível por mais duas semanas para ser discutido por toda a comunidade. Para participar, clique no botão "+" no canto inferior direito da tela inicial e, antes de escrever sua postagem, escolha a cor referente a como você deseja participar; verde para uma pergunta referente ao tema, laranja para seus argumentos e azul para inserir dados adicionais que agregam ao debate.</string>
+
+    <string name="tvNameUser">Lorena Almeida</string>
+    <string name="tvName">\@x1l1x0</string>
+    <string name="etBio">ᴀ ʜᴇᴀʀᴛ ᴛʜᴀᴛꜱ ꜰᴜʟʟ ᴜᴘ ʟɪᴋᴇ ᴀ ʟᴀɴᴅꜰɪʟʟ ᴀ ᴊᴏʙ ᴛʜᴀᴛ ꜱʟᴏᴡʟʏ ᴋɪʟʟꜱ ʏᴏᴜ ʙʀᴜɪꜱᴇꜱ ᴛʜᴀᴛ ᴡᴏɴᴛ ʜᴇᴀʟ ʏᴏᴜ ʟᴏᴏᴋ ꜱᴏ ᴛɪʀᴇᴅ, ᴜɴʜᴀᴘᴘʏ ʙʀɪɴɢ ᴅᴏᴡɴ ᴛʜᴇ ɢᴏᴠᴇʀɴᴍᴇɴᴛ ᴛʜᴇʏ ᴅᴏɴᴛ, ᴛʜᴇʏ ᴅᴏɴᴛ ꜱᴘᴇᴀᴋ ꜰᴏʀ ᴜꜱ </string>
+    <string name="tvJoined">Ingressou em 22/12/2020</string>
+    <string name="btnEditPassword">Alterar Senha</string>
+
+
+    <string name="tvSuggestionNew">Sugestão</string>
+    <string name="tvSuggestionTheme">Digite um tema:</string>
+    <string name="etTheme">Forneça dados sobre o tema escolhido:</string>
+    <string name="etDescTheme">Descreva com suas proprias palavras ou com fontes externas. Lembre-se de adicionar a sua referência</string>
+    <string name="btnSendTheme">Enviar</string>
+
+    <string name="btnQuestion">Pergunta</string>
+    <string name="btnArgument">Argumento</string>
+    <string name="btnData">Dados</string>
+    <string name="etMessage">Digite sua mensagem</string>
+    <string name="btnSendMessage">Enviar</string>
+
+    <string name="etEmailResgiter">E-mail</string>
+    <string name="etNewLogin">Nome de Usuário</string>
+    <string name="etNewPassword">Senha</string>
+    <string name="etNewPasswordCheck">Senha novamente</string>
+    <string name="btnRegister">Registrar</string>
+
+    <string name="tvNameItem">Nome de Usuário</string>
 </resources>
