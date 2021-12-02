@@ -41,24 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         rvDebates.setLayoutManager(layoutManager);
 
         rvDebates.setAdapter(myAdapter);
-
-        FloatingActionButton fabVote = findViewById(R.id.fabVote);
-        fabVote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, VoteActivity.class);
-                startActivity(i);
-            }
-        });
-
-        FloatingActionButton fabDescDebates = findViewById(R.id.fabDescDebates);
-        fabDescDebates.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, DescDebatesActivity.class);
-                startActivity(i);
-            }
-        });
+        
 
         FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
         fabAdd.setOnClickListener(new View.OnClickListener() {
