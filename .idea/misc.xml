@@ -3,6 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_debate.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_descdebates.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_editpassword.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_get_data.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_help.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_home.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_login.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_main.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_olddebates.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_perfil.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_register.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_suggestion.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_typing.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/activity_vote.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/item_argument.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/item_vote.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/loren/AndroidStudioProjects/AgorasMovel/app/src/main/res/layout/list_item_olddebates.xml" value="0.23489583333333333" />
         <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/activity_home.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/activity_olddebates.xml" value="0.2015625" />
