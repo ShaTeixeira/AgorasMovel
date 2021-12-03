@@ -59,6 +59,11 @@ public class EditPerfilActivity extends AppCompatActivity {
                 startActivity(i);
                 return true;
 
+            case R.id.vote:
+                i = new Intent(EditPerfilActivity.this, VoteActivity.class);
+                startActivity(i);
+                return true;
+
             case R.id.tema:
                 i = new Intent(EditPerfilActivity.this, SuggestionActivity.class);
                 startActivity(i);

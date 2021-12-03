@@ -46,6 +46,10 @@ public class TypingActivity extends AppCompatActivity {
                 i = new Intent(TypingActivity.this, PerfilActivity.class);
                 startActivity(i);
                 return true;
+            case R.id.vote:
+                i = new Intent(TypingActivity.this, VoteActivity.class);
+                startActivity(i);
+                return true;
 
             case R.id.tema:
                 i = new Intent(TypingActivity.this, SuggestionActivity.class);

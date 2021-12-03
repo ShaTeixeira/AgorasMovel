@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class Config {
+    static String SERVER_URL_BASE = "https://projdebate.herokuapp.com/";
 
     public static void setLogin(Context context, String login) {
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);

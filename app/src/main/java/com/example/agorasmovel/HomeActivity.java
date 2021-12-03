@@ -41,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         rvDebates.setLayoutManager(layoutManager);
 
         rvDebates.setAdapter(myAdapter);
-        
+
 
         FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
         fabAdd.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +70,11 @@ public class HomeActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.perfil:
                 i = new Intent(HomeActivity.this, PerfilActivity.class);
+                startActivity(i);
+                return true;
+
+            case R.id.vote:
+                i = new Intent(HomeActivity.this, VoteActivity.class);
                 startActivity(i);
                 return true;
 

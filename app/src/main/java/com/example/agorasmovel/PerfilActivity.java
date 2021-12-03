@@ -49,6 +49,18 @@ public class PerfilActivity extends AppCompatActivity {
             }
         });
 
+
+        Button btnLogout = findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Config.setLogin(PerfilActivity.this, "");
+                Config.setPassword(PerfilActivity.this, "");
+                Intent i = new Intent(PerfilActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     @Override
@@ -66,6 +78,10 @@ public class PerfilActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.tema:
                 i = new Intent(PerfilActivity.this, SuggestionActivity.class);
+                startActivity(i);
+                return true;
+            case R.id.vote:
+                i = new Intent(PerfilActivity.this, VoteActivity.class);
                 startActivity(i);
                 return true;
 

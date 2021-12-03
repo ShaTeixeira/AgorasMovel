@@ -11,6 +11,7 @@
         android:title="Perfil"
         app:showAsAction="always" />
     <item
+        android:id="@+id/vote"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_how_to_vote_24"
         android:title="vote"

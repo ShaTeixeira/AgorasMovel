@@ -62,4 +62,5 @@
     <string name="btnRegister">Registrar</string>
 
     <string name="tvNameItem">Nome de Usuário</string>
+    <string name="btnLogout">Logout</string>
 </resources>

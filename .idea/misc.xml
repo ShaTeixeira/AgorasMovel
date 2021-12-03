@@ -5,9 +5,13 @@
       <map>
         <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/activity_home.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/activity_olddebates.xml" value="0.2015625" />
+        <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/activity_perfil.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/activity_register.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/activity_suggestion.xml" value="0.1703125" />
         <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/activity_vote.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/layout/item_vote.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/loren/Downloads/AgorasMovelVr2/AgorasMovel/app/src/main/res/menu/main_toolbar.xml" value="0.1" />
       </map>
     </option>
   </component>

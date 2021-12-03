@@ -48,6 +48,10 @@ public class HelpActivity extends AppCompatActivity {
                 i = new Intent(HelpActivity.this, PerfilActivity.class);
                 startActivity(i);
                 return true;
+            case R.id.vote:
+                i = new Intent(HelpActivity.this, VoteActivity.class);
+                startActivity(i);
+                return true;
 
             case R.id.tema:
                 i = new Intent(HelpActivity.this, SuggestionActivity.class);

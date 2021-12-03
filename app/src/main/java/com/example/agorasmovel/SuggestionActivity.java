@@ -47,6 +47,10 @@ public class SuggestionActivity extends AppCompatActivity {
                 i = new Intent(SuggestionActivity.this, PerfilActivity.class);
                 startActivity(i);
                 return true;
+            case R.id.vote:
+                i = new Intent(SuggestionActivity.this, VoteActivity.class);
+                startActivity(i);
+                return true;
 
             case R.id.oldDebate:
                 i = new Intent(SuggestionActivity.this, OldDebatesActivity.class);
