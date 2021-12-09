@@ -27,10 +27,24 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EditText etNewEmail =  findViewById(R.id.etEmailResgister);
+                final String newEmail = etNewEmail.getText().toString();
+                if(newEmail.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Campo de email não preenchido", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                EditText etNewName =  findViewById(R.id.etNewName);
+                final String newName = etNewName.getText().toString();
+                if(newName.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Campo de usuario não preenchido", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 EditText etNewLogin =  findViewById(R.id.etNewLogin);
                 final String newLogin = etNewLogin.getText().toString();
                 if(newLogin.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "Campo de login não preenchido", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Campo de usuario não preenchido", Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -58,6 +72,8 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "register.php", "POST", "UTF-8");
+                        httpRequest.addParam("newEmail", newEmail);
+                        httpRequest.addParam("newLogin", newName);
                         httpRequest.addParam("newLogin", newLogin);
                         httpRequest.addParam("newPassword", newPassword);
 
