@@ -73,7 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void run() {
                         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "register.php", "POST", "UTF-8");
                         httpRequest.addParam("newEmail", newEmail);
-                        httpRequest.addParam("newLogin", newName);
+                        httpRequest.addParam("newName", newName);
                         httpRequest.addParam("newLogin", newLogin);
                         httpRequest.addParam("newPassword", newPassword);
 
