@@ -16,9 +16,11 @@ public class TypingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_typing);
+
         Toolbar toolbar = findViewById(R.id.tbMain);
         setSupportActionBar(toolbar);
-        setContentView(R.layout.activity_typing);
+
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
