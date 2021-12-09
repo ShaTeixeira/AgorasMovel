@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 import java.util.List;
 
@@ -27,6 +28,10 @@ public class HomeActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.tbMain);
         setSupportActionBar(toolbar);
+
+        String dropdownText = getResources().getString(R.string.tvdescTheme);
+        ExpandableTextView expTv1 = (ExpandableTextView) findViewById(R.id.expand_text_view).findViewById(R.id.expand_text_view);
+        expTv1.setText(dropdownText);
 
 
         HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);

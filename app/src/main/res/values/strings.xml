@@ -6,7 +6,7 @@
     <string name="btnVote">Votar</string>
 
     <string name="tvtitleTheme"> A IMPORTÂNCIA DA REPRESENTATIVIDADE NA PUBLICIDADE</string>
-    <string name="tvdescTheme">Desde seus primórdios a publicidade se utiliza de diversas estratégias para chamar atenção do consumidor, uma delas é a utilização de personagens conhecidos para estampar seus anúncios. O problema é que o padrão visual construído não representa a maioria das pessoas que são impactadas pelas campanhas diariamente. Representatividade importa e muito, principalmente na publicidade! De acordo com pesquisa realizada pelo Instituto Locomotiva em 2017, 76% dos brasileiros não se vê representado pelas propagandas exibidas na televisão e espera mais das marcas. Estando mais propenso a confiar em negócios que abordam a diversidade do brasileiro, e não segue os estereótipos de beleza. Vale ressaltar ainda que a tecnologia vem deixando o marketing cada vez mais personalizado, e isso faz com que a diversidade na publicidade seja cada vez mais importante. Anúncios precisam vir com a identidade do cliente, passível de gerar uma empatia com o prospect. </string>
+    <string name="tvdescTheme"> "\n"     Desde seus primórdios a publicidade se utiliza de diversas estratégias para chamar atenção do consumidor, uma delas é a utilização de personagens conhecidos para estampar seus anúncios. O problema é que o padrão visual construído não representa a maioria das pessoas que são impactadas pelas campanhas diariamente. Representatividade importa e muito, principalmente na publicidade! De acordo com pesquisa realizada pelo Instituto Locomotiva em 2017, 76% dos brasileiros não se vê representado pelas propagandas exibidas na televisão e espera mais das marcas. Estando mais propenso a confiar em negócios que abordam a diversidade do brasileiro, e não segue os estereótipos de beleza. Vale ressaltar ainda que a tecnologia vem deixando o marketing cada vez mais personalizado, e isso faz com que a diversidade na publicidade seja cada vez mais importante. Anúncios precisam vir com a identidade do cliente, passível de gerar uma empatia com o prospect. </string>
 
     <string name="tvOld">Senha Atual</string>
     <string name="tvNew">Nova Senha</string>
@@ -63,4 +63,5 @@
 
     <string name="tvNameItem">Nome de Usuário</string>
     <string name="btnLogout">Logout</string>
+    <string name="dropdownText">LORNAAAAAAAA kjdf hksdh fksjd fsjdhfkjsd hfksd hfkjsfdj hsdkjf hsdkjfshdfjkshdfkjhskdjfhskdfhkjsdh fkjsh fdkj hsdkfhskdhfkshjfkshfkjhskjf hsdkfh ksd fkjsd fkhsdjksdhfkjsh dfk sdfsdfskdfj ksjd fs hdfkjs hfjdkshdjkf hsjk fhjks hfdjks dfk</string>
 </resources>

@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class TypingActivity extends AppCompatActivity {
 
@@ -22,6 +23,15 @@ public class TypingActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TypingActivity.this, HomeActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Button btnSendMessage = findViewById(R.id.btnSendMessage);
+        btnSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(TypingActivity.this, HomeActivity.class);
