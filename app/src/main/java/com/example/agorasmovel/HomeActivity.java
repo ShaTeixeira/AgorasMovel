@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);
-        List<Item> itens = vm.getItens();
+        List<Comentario> itens = vm.getItens();
 
         MyAdapter myAdapter = new MyAdapter(this, itens);
 

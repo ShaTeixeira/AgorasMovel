@@ -13,9 +13,9 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter {
 
     HomeActivity homeActivity;
-    List<Item> itens;
+    List<Comentario> itens;
 
-    public MyAdapter(HomeActivity homeActivity, List<Item> itens) {
+    public MyAdapter(HomeActivity homeActivity, List<Comentario> itens) {
         this.homeActivity = homeActivity;
         this.itens = itens;
     }
@@ -31,17 +31,17 @@ public class MyAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Item item = itens.get(position);
+        Comentario comentario = itens.get(position);
         View v = holder.itemView;
 
         ImageView imgPhoto = v.findViewById(R.id.imgPhoto);
-        imgPhoto.setImageResource(item.photoPerfil);
+        imgPhoto.setImageResource(comentario.photoPerfil);
 
         TextView tvNameItem = v.findViewById(R.id.tvNameItem);
-        tvNameItem.setText(item.nomePerfil);
+        tvNameItem.setText(comentario.nomePerfil);
 
         TextView tvContent = v.findViewById(R.id.tvContent);
-        tvContent.setText(item.conteudo);
+        tvContent.setText(comentario.conteudo);
     }
 
     @Override
@@ -49,8 +49,4 @@ public class MyAdapter extends RecyclerView.Adapter {
         return itens.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return itens.get(position).tipo;
-    }
 }

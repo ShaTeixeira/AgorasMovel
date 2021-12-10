@@ -59,7 +59,7 @@
         android:background="#00F6D0B9"
         app:layout_constraintEnd_toStartOf="@+id/imDeslikeArgument"
         app:layout_constraintTop_toBottomOf="@+id/tvContent"
-        app:srcCompat="@drawable/ic_baseline_thumb_up_alt_24"
+        app:srcCompat="@drawable/ic_baseline_thumb_up_24"
         app:tint="#000000"
         tools:ignore="VectorDrawableCompat" />
 
