@@ -3,16 +3,19 @@
 
     android:shape="rectangle">
 
-    <gradient android:startColor="@color/purple_500"
-        android:endColor="#BEA8DA"
-        android:angle="90"></gradient>
+    <solid android:color="@color/purple_500"></solid>
 
-    <corners android:radius="20dp"/>
+    '<!--'<gradient android:startColor="@color/purple_500"
+        android:endColor="#BEA8DA"
+        android:angle="90"></gradient>'-->'
+
+
+    <corners android:radius="40dp"/>
 
     <padding
         android:bottom="7dp"
-        android:left="7dp"
-        android:right="7dp"
+        android:left="10dp"
+        android:right="10dp"
         android:top="7dp"
         />
 </shape>

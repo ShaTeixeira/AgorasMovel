@@ -19,7 +19,6 @@
         android:text="Sugestão"
         android:textColor="@color/purple_600"
         android:textSize="30dp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +36,7 @@
         android:text="@string/tvSuggestionTheme"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSuggestionNew" />
 
@@ -52,24 +52,23 @@
         android:text="@string/etTheme"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSuggestionTheme" />
 
     <EditText
         android:id="@+id/etDescTheme"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/etDescTheme"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/btnSendTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTheme" />
@@ -96,6 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
@@ -104,7 +104,9 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDescTheme"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbMain"

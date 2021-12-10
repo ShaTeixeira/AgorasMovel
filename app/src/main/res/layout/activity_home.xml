@@ -11,18 +11,13 @@
     android:scrollbarTrackHorizontal="?android:attr/fastScrollPreviewBackgroundLeft"
     android:scrollbarTrackVertical="?android:attr/fastScrollPreviewBackgroundLeft"
     android:scrollbars="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
     tools:context=".MainActivity">
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDebates"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -96,10 +91,7 @@
             android:textColor="#666666"
             android:textSize="17sp"
             android:gravity="center"
-            android:scrollbarAlwaysDrawVerticalTrack="true"
-            android:scrollbarStyle="insideOverlay"
-            android:scrollbarTrackVertical="?android:attr/fastScrollPreviewBackgroundLeft"
-            android:scrollbars="vertical"/>
+            />
 
         <ImageButton
             android:id="@id/expand_collapse"
@@ -109,6 +101,7 @@
             android:background="@android:color/transparent"
             android:padding="16dp" />
     </com.ms.square.android.expandabletextview.ExpandableTextView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
