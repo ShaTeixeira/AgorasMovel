@@ -55,7 +55,7 @@ Com um volume cada vez maior de informações no mundo atual, é importante que 
 
 ## 1ª Versão do Sistema Mobile
 
-### Visite o Site - Ainda em Manutenção
+### Visite o Site - Ainda em Construção
 Clique [aqui]()
 
 - [x] Tela de Inicio
