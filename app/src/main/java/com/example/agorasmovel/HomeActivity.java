@@ -30,14 +30,14 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         String dropdownText = getResources().getString(R.string.tvdescTheme);
-        ExpandableTextView expTv1 = (ExpandableTextView) findViewById(R.id.expand_text_view).findViewById(R.id.expand_text_view);
+        ExpandableTextView expTv1 = (ExpandableTextView) findViewById(R.id.expand_text_view);
         expTv1.setText(dropdownText);
 
 
         HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);
         List<Comentario> itens = vm.getItens();
 
-        MyAdapter myAdapter = new MyAdapter(this, itens);
+        MyAdapterComentario myAdapterComentario = new MyAdapterComentario(this, itens);
 
         RecyclerView rvDebates = findViewById(R.id.rvDebates);
         rvDebates.setHasFixedSize(true);
@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvDebates.setLayoutManager(layoutManager);
 
-        rvDebates.setAdapter(myAdapter);
+        rvDebates.setAdapter(myAdapterComentario);
 
 
         FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
@@ -100,5 +100,4 @@ public class HomeActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 }

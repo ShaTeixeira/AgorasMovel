@@ -26,6 +26,19 @@ public class VoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote);
 
+        VoteViewModel vtm = new ViewModelProvider(this).get(VoteViewModel.class);
+        List<ItemVote> itensVote = vtm.getVoteItens();
+
+        MyAdapterVote myAdapterVote = new MyAdapterVote(this,itensVote);
+
+        RecyclerView rvVote = findViewById(R.id.rvVote);
+        rvVote.setHasFixedSize(true);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        rvVote.setLayoutManager(layoutManager);
+
+        rvVote.setAdapter(myAdapterVote);
+
         Toolbar toolbar = findViewById(R.id.tbMain);
         setSupportActionBar(toolbar);
         toolbar.setOnClickListener(new View.OnClickListener() {

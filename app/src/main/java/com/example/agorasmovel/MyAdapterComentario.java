@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter {
+public class MyAdapterComentario extends RecyclerView.Adapter {
 
     HomeActivity homeActivity;
     List<Comentario> itens;
 
-    public MyAdapter(HomeActivity homeActivity, List<Comentario> itens) {
+    public MyAdapterComentario(HomeActivity homeActivity, List<Comentario> itens) {
         this.homeActivity = homeActivity;
         this.itens = itens;
     }
@@ -26,7 +26,7 @@ public class MyAdapter extends RecyclerView.Adapter {
         View v = null;
         v = inflater.inflate(R.layout.item_argument, parent, false);
 
-        return new MyViewHolder(v);
+        return new MyViewHolderComentario(v);
     }
 
     @Override
