@@ -10,8 +10,8 @@ public class VoteViewModel extends ViewModel {
 
     public VoteViewModel(){
         ItemVote i0 = new ItemVote();
-        i0.Name = "R.string.tvtitleTheme";
-        i0.descDebate = "R.string.tvdescTheme";
+        i0.Name = R.string.tvtitleTheme;
+        i0.descDebate = R.string.tvdescTheme;
         i0.likes = 10;
 
         itensVote.add(i0);

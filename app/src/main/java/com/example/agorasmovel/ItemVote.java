@@ -1,7 +1,7 @@
 package com.example.agorasmovel;
 
 public class ItemVote {
-    public String Name;
-    public String descDebate;
+    public int Name;
+    public int descDebate;
     public int likes;
 }
