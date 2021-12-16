@@ -30,14 +30,15 @@ Esse projeto está sendo desenvolvido com as tecnologias:
 - [Revisão de Processos v1](https://docs.google.com/presentation/d/133IfI67cq-7Sj4LR1dAW5jw1gj282Ig837o0iHb-mb4/edit#slide=id.ge950579e59_0_10)
 - [Revisão de Processos v2](https://docs.google.com/presentation/d/1beIUpdqfJ5grQQnkaybq7MH6IiO03DcXGD5vRNSf-ss/edit#slide=id.gfbcbaff1bc_0_54)
 - [Tecnologias Utilizadas](https://docs.google.com/presentation/d/13NfGg9uX6wDPxrB7n9dv4xdxGMuL1fZP8dORHts2kFE/edit#slide=id.geb0675a293_0_122)
+- [Repo do PHP - Àgoras](https://github.com/IAteYourKookie/AgorasWeb)
 
 ---
 
 - [Banco de Dados](https://docs.google.com/presentation/d/1CrR9VVsL2LR1gIJw46n70WQc1p43m60OOj6Z2XKNYRA/edit#slide=id.p)
 - [Plano de Testes](https://docs.google.com/presentation/d/1tsIXb40ynTqoQFKlGAo_cO3eGclcIdoxulUQfdy-2ro/edit#slide=id.p)
 - [Plano de Testes - Planilhas](https://docs.google.com/spreadsheets/d/1hlJXMdrNZN33beMeTxheXadmKp976s1fFt3Wjw2Snd8/edit#gid=0)
-
-
+- [Heroku](https://projdebate.herokuapp.com/)
+- [Link do Slide de Apresentação Final](https://www.canva.com/design/DAEytEvEzT4/kCMNyqI13qptof5KkiZd3Q/view?utm_content=DAEytEvEzT4&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
 
 ## Projeto Integrador
 
@@ -54,7 +55,7 @@ Com um volume cada vez maior de informações no mundo atual, é importante que 
 
 ## 1ª Versão do Sistema Mobile
 
-### Visite o Site - Ainda em Manutenção
+### Visite o Site - Ainda em Construção
 Clique [aqui]()
 
 - [x] Tela de Inicio
@@ -72,9 +73,18 @@ Clique [aqui]()
 - [x] BD Cadastro
 
 ## 2ª Versão do BD
+- [x] BD Debate
+- [x] BD Tema
+- [x] BD Comentário 
+
+## Aplicação de PHP
+- [x] BD Login
+- [x] BD Cadastro
 - [ ] BD Debate
 - [ ] BD Tema
 - [ ] BD Comentário 
+- [ ] BD Resposta 
+- [ ] BD Curtida
 
 ## 2.1 DB - Melhorias
 - [ ] BD Debate
