@@ -54,7 +54,8 @@ Com um volume cada vez maior de informações no mundo atual, é importante que 
 
 ## 1ª Versão do Sistema Mobile
 
-Data de entrega 03/09/2021!
+### Visite o Site - Ainda em Manutenção
+Clique [aqui]()
 
 - [x] Tela de Inicio
 - [x] Tela de Votação
@@ -64,6 +65,38 @@ Data de entrega 03/09/2021!
 - [x] Tela de Perfil
 - [x] Tela de Chat Debate
 - [x] Tela de Sugestão
+
+## 1ª Versão do BD 
+
+- [x] BD Login
+- [x] BD Cadastro
+
+## 2ª Versão do BD
+- [ ] BD Debate
+- [ ] BD Tema
+- [ ] BD Comentário 
+
+## 2.1 DB - Melhorias
+- [ ] BD Debate
+- [ ] BD Tema
+- [ ] BD Comentário 
+
+## 2.2 DB - Melhorias 
+- [ ] BD Debate
+- [ ] BD Tema
+- [ ] BD Comentário 
+- [ ] BD Resposta 
+- [ ] BD Curtida
+
+## 3ª Versão BD - Totalmente Funcional 
+- [x] BD Login
+- [x] BD Cadastro
+- [ ] BD Debate
+- [ ] BD Tema
+- [ ] BD Comentário 
+- [ ] BD Resposta 
+- [ ] BD Curtida
+
 
 ## Cores Principais
 
