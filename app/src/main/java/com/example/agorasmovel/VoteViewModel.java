@@ -14,7 +14,13 @@ public class VoteViewModel extends ViewModel {
         i0.descDebate = R.string.tvdescTheme;
         i0.likes = 10;
 
+        ItemVote i1 = new ItemVote();
+        i1.Name = R.string.tvtitleTheme2;
+        i1.descDebate = R.string.tvdescTheme2;
+        i1.likes = 5;
+
         itensVote.add(i0);
+        itensVote.add(i1);
     }
     public List<ItemVote> getVoteItens() {
         return itensVote;

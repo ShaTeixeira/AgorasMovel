@@ -40,11 +40,9 @@ public class MyAdapterVote extends RecyclerView.Adapter {
         TextView tvtitleTheme = v.findViewById(R.id.tvtitleTheme);
         tvtitleTheme.setText(vote.Name);
 
-        TextView exText_descDebate = v.findViewById(R.id.expand_text_viewDebates).findViewById(R.id.expandable_text);
-        exText_descDebate.setText(vote.descDebate);
+        TextView tvdescDebate = v.findViewById(R.id.tvDescDebateVote);
+        tvdescDebate.setText(vote.descDebate);
 
-        //ExpandableTextView expTv2 = (ExpandableTextView) findViewById(R.id.expand_text_viewDebates);
-        //expTv2.setText(dropdownText);
 
     }
 
