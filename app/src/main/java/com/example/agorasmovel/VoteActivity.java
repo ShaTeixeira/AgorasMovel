@@ -50,15 +50,6 @@ public class VoteActivity extends AppCompatActivity {
         });
 
 
-        Button button = findViewById(R.id.btnVote);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(VoteActivity.this, HomeActivity.class);
-                startActivity(i);
-            }
-        });
-
     }
 
     @Override
