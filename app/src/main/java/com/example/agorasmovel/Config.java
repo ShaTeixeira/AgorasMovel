@@ -12,6 +12,18 @@ public class Config {
         mEditor.putString("login", login).commit();
     }
 
+    public static void setTitulo(Context context, String titulo){
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString("titulo", titulo).commit();
+    }
+
+    public static void setDesc(Context context, String desc){
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString("desc", desc).commit();
+    }
+
     public static String getLogin(Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
         return mPrefs.getString("login", "");
