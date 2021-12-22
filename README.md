@@ -119,5 +119,5 @@ Clique [aqui](https://projdebate.herokuapp.com/)
 | Amarelo Border     | #F2EA9D |
 
 <p align="center">
-Feito com ♥ Charles, Lorena e Shayane 
+Feito com ♥ Charles Junior, Lorena Almeida e Shayane Teixeira
 </p>
