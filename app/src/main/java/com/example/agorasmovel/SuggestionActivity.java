@@ -63,7 +63,8 @@ public class SuggestionActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "tema.php", "POST", "UTF-8");
-                        httpRequest.setBasicAuth(titulo,descricao);
+                        httpRequest.addParam("titulo",titulo);
+                        httpRequest.addParam("descricao",descricao);
 
                         try{
                             InputStream is = httpRequest.execute();

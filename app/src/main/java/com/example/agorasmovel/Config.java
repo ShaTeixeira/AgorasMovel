@@ -6,6 +6,36 @@ import android.content.SharedPreferences;
 public class Config {
     static String SERVER_URL_BASE = "https://projdebate.herokuapp.com/";
 
+    public static void newPass(Context context, String newPass){
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString("newpass", newPass).commit();
+    }
+
+    public static void oldPass(Context context, String oldPass){
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString("oldpass", oldPass).commit();
+    }
+
+    public static void setEditName(Context context, String editName){
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString("name", editName).commit();
+    }
+
+    public static void setEditEmail(Context context, String editEmail){
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString("email", editEmail).commit();
+    }
+
+    public static void setEditBio(Context context, String editBio){
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString("bio", editBio).commit();
+    }
+
     public static void setLogin(Context context, String login) {
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
         SharedPreferences.Editor mEditor = mPrefs.edit();

@@ -14,6 +14,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class EditPasswordActivity extends AppCompatActivity {
 
     @Override
@@ -61,10 +69,45 @@ public class EditPasswordActivity extends AppCompatActivity {
                     return;
                 }
 
-                // continuar aqui
+                ExecutorService executorService = Executors.newSingleThreadExecutor();
+                executorService.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "senha.php", "POST", "UTF-8");
+                        httpRequest.addParam("oldPass",oldPass);
+                        httpRequest.addParam("newPass", newPass);
 
-                Intent i = new Intent(EditPasswordActivity.this, PerfilActivity.class);
-                startActivity(i);
+                        try{
+                            InputStream is = httpRequest.execute();
+                            String result = Util.inputStream2String(is, "UTF-8");
+                            httpRequest.finish();
+
+                            JSONObject jsonObject = new JSONObject(result);
+                            final int success = jsonObject.getInt("success");
+                            if(success==1){
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Config.setTitulo(EditPasswordActivity.this, oldPass);
+                                        Config.setDesc(EditPasswordActivity.this, newPass);
+                                        Toast.makeText(EditPasswordActivity.this,"Senha atualizada com sucesso", Toast.LENGTH_LONG).show();
+                                        Intent i = new Intent(EditPasswordActivity.this, PerfilActivity.class);
+                                        startActivity(i);
+                                    }
+                                });
+                            }else{
+                                final String error = jsonObject.getString("error");
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(EditPasswordActivity.this, error, Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+                        }catch (IOException | JSONException e) {
+                            e.printStackTrace();
+                    }}
+                });
             }
         });
     }

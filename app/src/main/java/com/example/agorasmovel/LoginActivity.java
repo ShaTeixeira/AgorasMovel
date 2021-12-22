@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "login.php", "POST", "UTF-8");
-                        httpRequest.setBasicAuth(login, password);
+                        httpRequest.setBasicAuth(editName, login, password);
 
                         try {
                             InputStream is = httpRequest.execute();

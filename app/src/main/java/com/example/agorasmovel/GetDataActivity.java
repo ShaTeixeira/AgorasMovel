@@ -2,10 +2,7 @@ package com.example.agorasmovel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +29,7 @@ public class GetDataActivity extends AppCompatActivity {
             @Override
             public void run() {
                 HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_data.php", "GET", "UTF-8");
-                httpRequest.setBasicAuth(login, password);
+                httpRequest.setBasicAuth(editName, login, password);
 
                 try {
                     InputStream is = httpRequest.execute();
