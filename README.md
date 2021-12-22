@@ -51,12 +51,12 @@ Esse projeto está sendo desenvolvido com as tecnologias:
 
 ## Minimundo
 
-Com um volume cada vez maior de informações no mundo atual, é importante que as pessoas estejam preparadas para processá-las e argumentar sobre. Nosso projeto procura prover um sistema com um espaço de discussão para os usuários sobre um tema escolhido por uma maioria de votos e todas as informações acerca do assunto serão catalogadas para instruir os usuários e direcionar o debate. É importante um perfil para a identificação de cada usuário e que seja personalizável para o bem-estar dele, ainda para reconhecer e punir determinados usuários que infrinjam as regras de boa convivência, para que as funcionalidades sejam armazenadas corretamentes serão necessárias informações como nome, nome de usuário, email, senha. Para armazenamento dos temas incluiremos, titulo, um usuário, descrição e data. Um usuário poderá cadastrar vários temas. Já a votação só pode ser feita uma única vez, em cada tema. Cada votação contêm, um código, data de inicio e data de fim. Para o usuário votar ele precisa estar logado em sua conta, assim como para participar de um debate e comentar. Para o usuário comentar serão armazenados os códigos de comentário e discussão uma data e hora, o próprio comentário e o código de user. Para o usuário comentar serão armazenados os códigos de comentário e discussão uma data e hora, o próprio comentário e o código de user. A discussão e respostas armazenam código do tema, data inicial e final, código de usuário. A dinâmica de participação acontecerá com os usuários interagindo com o tema disponível, comentando as postagens de outros usuários e votando no próximo que desejam discutir. Procurando trazer mais tópicos que se adequam ao interesse da comunidade, o envio de sugestões poderá ser feito a qualquer momento.
+Com um volume cada vez maior de informações no mundo atual, é importante que as pessoas estejam preparadas para processá-las e argumentar sobre. Nosso projeto procura prover um sistema de discussão para os usuários sobre um tema escolhido. É importante um perfil para a identificação de cada usuário e que seja personalizável. As informações do usuário serão armazenadas como nome, nome de usuário, email, senha. Para armazenamento dos temas incluiremos título, um usuário, descrição e data de início e fim. Poderá cadastrar vários temas e a votação (ininterrupta) só pode ser feita uma única vez em cada tema. No comentário serão armazenados os códigos de comentário e discussão, uma data e hora, o texto do comentário e o código de usuário. A participação acontecerá com os usuários interagindo com um tema, comentando outras postagens e votando no próximo que desejam discutir. O envio de sugestões poderá ser feito a qualquer momento.
 
 ## 1ª Versão do Sistema Mobile
 
-### Visite o Site - Ainda em Construção
-Clique [aqui]()
+### Visite o Site - PHP
+Clique [aqui](https://projdebate.herokuapp.com/)
 
 - [x] Tela de Inicio
 - [x] Tela de Votação
@@ -81,10 +81,10 @@ Clique [aqui]()
 - [x] BD Login
 - [x] BD Cadastro
 - [ ] BD Debate
-- [ ] BD Tema
+- [ ] BD Tema - Em andamento
 - [ ] BD Comentário 
 - [ ] BD Resposta 
-- [ ] BD Curtida
+- [ ] BD Curtida - Em andamento
 
 ## 2.1 DB - Melhorias
 - [ ] BD Debate
