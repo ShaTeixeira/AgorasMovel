@@ -47,14 +47,14 @@ public class SuggestionActivity extends AppCompatActivity {
                 EditText etTheme = findViewById(R.id.etSuggestionTheme);
                 final String titulo = etTheme.getText().toString();
                 if(titulo.isEmpty()){
-                    Toast.makeText(SuggestionActivity.this, "Campo de nova senha não preenchido", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SuggestionActivity.this, "De um titulo ao seu tema", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 EditText etDesc = findViewById(R.id.etDescTheme);
                 final String descricao = etDesc.getText().toString();
                 if(descricao.isEmpty()){
-                    Toast.makeText(SuggestionActivity.this, "Campo de nova senha não preenchido", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SuggestionActivity.this, "Faça uma breve descrição do tema", Toast.LENGTH_LONG).show();
                     return;
                 }
 

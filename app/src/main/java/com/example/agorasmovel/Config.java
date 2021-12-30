@@ -6,6 +6,12 @@ import android.content.SharedPreferences;
 public class Config {
     static String SERVER_URL_BASE = "https://projdebate.herokuapp.com/";
 
+    public static void setComentario(Context context, String comentario){
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString("comentario", comentario).commit();
+    }
+
     public static void newPass(Context context, String newPass){
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
         SharedPreferences.Editor mEditor = mPrefs.edit();
