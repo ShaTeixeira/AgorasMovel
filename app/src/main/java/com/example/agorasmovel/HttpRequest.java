@@ -84,7 +84,7 @@ public class HttpRequest {
     }
 
     // Caso seja necessario autenticacao, seta as informacoes de user e password
-    public void setBasicAuth(String editName, String user, String password) {
+    public void setBasicAuth(String user, String password) {
         this.user = user;
         this.password = password;
     }

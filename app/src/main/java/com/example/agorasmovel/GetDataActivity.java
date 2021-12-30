@@ -24,12 +24,13 @@ public class GetDataActivity extends AppCompatActivity {
         final String login = Config.getLogin(GetDataActivity.this);
         final String password = Config.getPassword(GetDataActivity.this);
 
+
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(new Runnable() {
             @Override
             public void run() {
                 HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_data.php", "GET", "UTF-8");
-                httpRequest.setBasicAuth(editName, login, password);
+                httpRequest.setBasicAuth(login, password);
 
                 try {
                     InputStream is = httpRequest.execute();

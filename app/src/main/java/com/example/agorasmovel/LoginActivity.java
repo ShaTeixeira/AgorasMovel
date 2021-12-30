@@ -35,13 +35,12 @@ public class LoginActivity extends AppCompatActivity {
                 final String password = etPassword.getText().toString();
 
 
-
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(new Runnable() {
                     @Override
                     public void run() {
                         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "login.php", "POST", "UTF-8");
-                        httpRequest.setBasicAuth(editName, login, password);
+                        httpRequest.setBasicAuth(login, password);
 
                         try {
                             InputStream is = httpRequest.execute();
