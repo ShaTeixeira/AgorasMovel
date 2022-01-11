@@ -45,9 +45,6 @@ public class TypingActivity extends AppCompatActivity {
         btnSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(TypingActivity.this, HomeActivity.class);
-                startActivity(i);
-
                 EditText etcomentario = findViewById(R.id.etMessage);
                 final String comentario = etcomentario.getText().toString();
                 if(comentario.isEmpty()){
