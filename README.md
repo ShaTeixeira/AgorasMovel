@@ -46,7 +46,7 @@ Esse projeto está sendo desenvolvido com as tecnologias:
 - [Anteprojeto](https://docs.google.com/document/d/1fuNOEOHj0LNzbvmBoJK5MR2G2ofqRloSDvxdeDUlo48/edit)
 - [Wireframe Mobile](https://docs.google.com/presentation/d/1FH3wKA5VDobz2nH1XQn04hySsuKiL8jbI8FPiBvk_LE/edit#slide=id.gfcc268c88d_0_180)
 - [Roadmap](https://docs.google.com/presentation/d/18BQcBQpc58xfuZgjkS-_zyzDlwWoOK4J3MBIofsjHAo/edit#slide=id.p)
-- [Planejamento de 2 semanas](https://docs.google.com/presentation/d/1HCZcKTDFiOLWNo3-g1Tg_H0uJ6kc4tJNJN0-eRCLJM4/edit#slide=id.p)
+- [Planejamento de 2 semanas](https://docs.google.com/presentation/d/117zuiRN8lEh9fXq7Mh0wgLEq6j2CMA9I0_nQ5vsjr-M/edit#slide=id.p)
 
 
 ## Minimundo
