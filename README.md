@@ -62,17 +62,7 @@ Esse projeto está sendo desenvolvido com as tecnologias:
 - [x] Tela de Chat Debate
 - [x] Tela de Sugestão
 
-## 1ª Versão do BD 
-
-- [x] BD Login
-- [x] BD Cadastro
-
-## 2ª Versão do BD
-- [x] BD Debate
-- [x] BD Tema
-- [x] BD Comentário 
-
-## Aplicação de PHP
+### Aplicação de PHP
 - [x] BD Login
 - [x] BD Cadastro
 - [ ] BD Debate - Parado
@@ -81,21 +71,31 @@ Esse projeto está sendo desenvolvido com as tecnologias:
 - [ ] BD Resposta - Em andamento
 - [ ] BD Curtida - Parado
 
-## 2.1 - Melhorias de Interface
+### 1ª Versão do BD 
+
+- [x] BD Login
+- [x] BD Cadastro
+
+### 2ª Versão do BD
+- [x] BD Debate
+- [x] BD Tema
+- [x] BD Comentário 
+
+### 2.1 - Melhorias de Interface
 - [x] Debate
 - [x] Tema 
 - [x] Comentário 
 
-## 2.1 - Melhorias do DB
+### 2.1 - Melhorias do DB
 - [ ] BD Debate - Parado
 - [ ] BD Tema - Em andamento 
 - [ ] BD Comentário - Em andamento
 
-## 2.2 DB - Melhorias 
+### 2.2 DB - Melhorias 
 - [ ] BD Resposta - Parado
 - [ ] BD Curtida - Parado
 
-## 3.1 Versão BD - INSERT + SELECT 
+### 3 Versão BD - INSERT + SELECT 
 - [x] BD Login
 - [x] BD Cadastro
 - [x] BD Tema
@@ -104,7 +104,7 @@ Esse projeto está sendo desenvolvido com as tecnologias:
 - [ ] BD Resposta 
 - [ ] BD Curtida
 
-## 3.2 Versão BD - Totalmente Funcional 
+## 3.1 Versão BD - Totalmente Funcional 
 - [x] BD Login
 - [x] BD Cadastro
 - [ ] BD Debate
@@ -112,7 +112,6 @@ Esse projeto está sendo desenvolvido com as tecnologias:
 - [ ] BD Comentário 
 - [ ] BD Resposta 
 - [ ] BD Curtida
-
 
 ## Cores Principais
 
