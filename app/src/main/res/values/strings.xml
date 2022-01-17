@@ -20,6 +20,7 @@
     <string name="etEditNameUser">Nome de Usuário</string>
     <string name="etEditEmail">E-mail</string>
     <string name="etEditBio">Biografia</string>
+    <string name="btnDelete">Deletar conta</string>
     <string name="btnEditSave">Salvar</string>
 
     <string name="etEmailLogin">E-mail</string>
