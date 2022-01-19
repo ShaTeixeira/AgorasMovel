@@ -10,4 +10,6 @@
     <color name="yellow_200">#F2EA9D</color>
     <color name="yellow_500">#F5E44C</color>
     <color name="blue">#B1BFEA</color>
+    <color name="gray_100">#CCCDD1</color>
+    <color name="gray_200">#717171</color>
 </resources>

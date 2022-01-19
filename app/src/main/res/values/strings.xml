@@ -68,4 +68,9 @@
 
     <string name="tvNameItem">Nome de Usuário</string>
     <string name="btnLogout">Logout</string>
+
+    <string name="tvDeleteTitle">Excluir Perfil</string>
+    <string name="tvDelete">Tem certeza que deseja excluir esse usuario?</string>
+    <string name="btnDeletar">Sim, excluir</string>
+    <string name="tvCancel">Cancelar</string>
 </resources>

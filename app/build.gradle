@@ -40,4 +40,5 @@ dependencies {
     implementation 'com.ms-square:expandableTextView:0.1.4'
     //circle image view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    android.defaultConfig.vectorDrawables.useSupportLibrary = true
 }

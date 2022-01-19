@@ -50,6 +50,9 @@
             android:name=".MainActivity"
             android:theme="@android:style/Theme.NoDisplay">
         </activity>
-    </application>
 
+        <activity android:name=".Pop"
+            android:theme="@style/Theme.AgorasMovel.Popup">
+        </activity>
+    </application>
 </manifest>
