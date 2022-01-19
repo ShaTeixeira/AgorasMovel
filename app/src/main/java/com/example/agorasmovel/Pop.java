@@ -1,11 +1,17 @@
 package com.example.agorasmovel;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupWindow;
 
 public class Pop extends Activity {
@@ -30,5 +36,23 @@ public class Pop extends Activity {
 
         getWindow().setAttributes(params);
 
+        Button btnDeleteAcc = findViewById(R.id.btnDelete);
+        btnDeleteAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Deletar conta
+
+
+            }
+        });
+
+
+        Button btnCancel = findViewById(R.id.btnCancel);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                onBackPressed();
+            }
+        });
     }
 }

@@ -17,6 +17,7 @@
     <style name="Theme.AgorasMovel.Popup">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@color/material_on_surface_stroke</item>
+        <item name="android:state_window_focused">true</item>
     </style>
 
 </resources>

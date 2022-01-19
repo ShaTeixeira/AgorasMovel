@@ -40,8 +40,8 @@ public class EditPerfilActivity extends AppCompatActivity {
             }
         });
 
-        Button btnDeleteAcc = findViewById(R.id.btnDelete);
-        btnDeleteAcc.setOnClickListener(new View.OnClickListener() {
+        Button btnPopup = findViewById(R.id.btnPop);
+        btnPopup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EditPerfilActivity.this,Pop.class));
