@@ -57,6 +57,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //conectar com o servidor - comentario
+
+
+
     }
 
     @Override
