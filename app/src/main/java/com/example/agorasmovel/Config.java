@@ -42,12 +42,6 @@ public class Config {
         mEditor.putString("bio", editBio).commit();
     }
 
-    public static void setLogin(Context context, String login) {
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("login", login).commit();
-    }
-
     public static void setTitulo(Context context, String titulo){
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
         SharedPreferences.Editor mEditor = mPrefs.edit();
@@ -63,6 +57,12 @@ public class Config {
     public static String getLogin(Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
         return mPrefs.getString("login", "");
+    }
+
+    public static void setLogin(Context context, String login) {
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString("login", login).commit();
     }
 
     public static void setPassword(Context context, String password) {
