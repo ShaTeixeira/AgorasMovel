@@ -52,12 +52,15 @@ public class TypingActivity extends AppCompatActivity {
                     return;
                 }
 
+                String login = Config.getLogin(TypingActivity.this);
+
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(new Runnable() {
                     @Override
                     public void run() {
                         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "comentario.php", "POST","UTF-8");
                         httpRequest.addParam("comentario",comentario);
+                        httpRequest.addParam("login",login);
 
                         try {
                             InputStream is = httpRequest.execute();
