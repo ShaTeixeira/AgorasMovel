@@ -40,7 +40,7 @@ public class EditPerfilActivity extends AppCompatActivity {
 
         ImageButton imgEditPhoto = findViewById(R.id.imgEditPhoto);
         PhotoViewModel photoViewModel = new ViewModelProvider(this).get(PhotoViewModel.class);
-        String currentPhotoPath = PhotoViewModel.getCurrentPhotoPath();
+        String currentPhotoPath = photoViewModel.getCurrentPhotoPath();
         //verificar se tem foto
         if(!currentPhotoPath.isEmpty()){
             ImageView imvPhoto = findViewById(R.id.imgEditPhoto);
@@ -107,7 +107,7 @@ public class EditPerfilActivity extends AppCompatActivity {
                 }
 
                 //VERIFICA SE A FOTO FOI ADICIONADA
-                String currentPhotoPath = PhotoViewModel.getCurrentPhotoPath();
+                String currentPhotoPath = photoViewModel.getCurrentPhotoPath();
                 if(currentPhotoPath.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Não foi enviada uma imagem", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
