@@ -57,6 +57,11 @@ Esse projeto está sendo desenvolvido com as tecnologias:
 ![Android Studio](https://img.shields.io/badge/-AndroidStudio-00AA44?style=for-the-badge&logo=AndroidStudio&logoColor=AndroidStudio)&nbsp;
 ![VisualStudioCode](https://img.shields.io/badge/-VisualStudioCode-3399FF?style=for-the-badge&logo=VisualStudioCode&logoColor=VisualStudioCode)
 
+### Versionamento, código-fonte, MarkDown
+![Git](https://img.shields.io/badge/-Git-05122A?style=for-the-badge&logo=GIT&logoColor=git)&nbsp;
+![GitHub](https://img.shields.io/badge/-GitHub-05122A?style=for-the-badge&logo=GITHUB&logoColor=github)&nbsp;
+![Markdown](https://img.shields.io/badge/-Markdown-05122A?style=for-the-badge&logo=MARKDOWN&logoColor=Markdown)&nbsp;
+
 # Versões do Sistema Mobile - Android Studio
 
 ## Telas do Front-End - Java
