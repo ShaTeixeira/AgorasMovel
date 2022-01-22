@@ -45,7 +45,7 @@
             android:name=".HomeActivity"
             android:exported="true" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".DescDebatesActivity" />
+        <activity android:name=".Activity.DescDebatesActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@android:style/Theme.NoDisplay">

@@ -9,7 +9,7 @@
     android:scrollbarTrackHorizontal="?android:attr/fastScrollPreviewBackgroundLeft"
     android:scrollbarTrackVertical="?android:attr/fastScrollPreviewBackgroundLeft"
     android:scrollbars="vertical"
-    tools:context=".DescDebatesActivity">
+    tools:context=".Activity.DescDebatesActivity">
 
     <TextView
         android:id="@+id/tvtitleTheme"

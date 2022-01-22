@@ -12,46 +12,17 @@ public class Config {
         mEditor.putString("comentario", comentario).commit();
     }
 
-    public static void newPass(Context context, String newPass){
+    public static String getComentario(Context context){
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("newpass", newPass).commit();
+        return mPrefs.getString("comentario", "");
     }
 
-    public static void oldPass(Context context, String oldPass){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("oldpass", oldPass).commit();
-    }
+    //login
 
-    public static void setEditName(Context context, String editName){
+    public static void setLogin(Context context, String login) {
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
         SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("name", editName).commit();
-    }
-
-    public static void setEditEmail(Context context, String editEmail){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("email", editEmail).commit();
-    }
-
-    public static void setEditBio(Context context, String editBio){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("bio", editBio).commit();
-    }
-
-    public static void setTitulo(Context context, String titulo){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("titulo", titulo).commit();
-    }
-
-    public static void setDesc(Context context, String desc){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("desc", desc).commit();
+        mEditor.putString("login", login).commit();
     }
 
     public static String getLogin(Context context) {
@@ -59,11 +30,7 @@ public class Config {
         return mPrefs.getString("login", "");
     }
 
-    public static void setLogin(Context context, String login) {
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("login", login).commit();
-    }
+    //senha
 
     public static void setPassword(Context context, String password) {
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);

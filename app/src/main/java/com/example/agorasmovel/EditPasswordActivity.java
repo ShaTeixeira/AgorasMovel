@@ -88,8 +88,6 @@ public class EditPasswordActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Config.setTitulo(EditPasswordActivity.this, oldPass);
-                                        Config.setDesc(EditPasswordActivity.this, newPass);
                                         Toast.makeText(EditPasswordActivity.this,"Senha atualizada com sucesso", Toast.LENGTH_LONG).show();
                                         Intent i = new Intent(EditPasswordActivity.this, PerfilActivity.class);
                                         startActivity(i);

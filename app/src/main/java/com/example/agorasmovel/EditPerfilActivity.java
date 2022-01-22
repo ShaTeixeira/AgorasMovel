@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -53,6 +54,9 @@ public class EditPerfilActivity extends AppCompatActivity {
         btnEditSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ImageButton imgEditPhoto = findViewById(R.id.imgEditPhoto);
+                //codigo url img
+
                 EditText etEditName = findViewById(R.id.etEditName);
                 final String editName = etEditName.getText().toString();
                 if(editName.isEmpty()){
@@ -60,28 +64,40 @@ public class EditPerfilActivity extends AppCompatActivity {
                     return;
                 }
 
-                EditText etEditEmail = findViewById(R.id.etEditName);
-                final String editEmail = etEditName.getText().toString();
+                EditText etEditUserName= findViewById(R.id.etEditUserName);
+                final String editUser = etEditUserName.getText().toString();
+                if(editUser.isEmpty()){
+                    Toast.makeText(EditPerfilActivity.this, "Campo de usuario não preenchido", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                EditText etEditEmail = findViewById(R.id.etEditEmail);
+                final String editEmail = etEditEmail.getText().toString();
                 if(editEmail.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de email não preenchido", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                EditText etEditBio = findViewById(R.id.etEditName);
+
+                EditText etEditBio = findViewById(R.id.etEditBio);
                 final String editBio = etEditName.getText().toString();
                 if(editBio.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de bio não preenchido", Toast.LENGTH_LONG).show();
                     return;
                 }
 
+                final String login = Config.getLogin(EditPerfilActivity.this);
+
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(new Runnable() {
                     @Override
                     public void run() {
-                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "perfil.php", "POST", "UTF-8");
+                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "ediatrPerfil.php", "POST", "UTF-8");
                         httpRequest.addParam("editName", editName);
+                        httpRequest.addParam("editName", editUser);
                         httpRequest.addParam("editEmail",editEmail);
                         httpRequest.addParam("editBio", editBio);
+                        httpRequest.addParam("login",login);
 
 
                         try {
@@ -95,9 +111,6 @@ public class EditPerfilActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Config.setEditName(EditPerfilActivity.this, editName);
-                                        Config.setEditEmail(EditPerfilActivity.this, editEmail);
-                                        Config.setEditBio(EditPerfilActivity.this, editBio);
                                         Toast.makeText(EditPerfilActivity.this,"Perfil atualizado com sucesso", Toast.LENGTH_LONG).show();
                                         Intent i = new Intent(EditPerfilActivity.this, PerfilActivity.class);
                                         startActivity(i);

@@ -58,6 +58,8 @@ public class SuggestionActivity extends AppCompatActivity {
                     return;
                 }
 
+                final String login = Config.getLogin(SuggestionActivity.this);
+
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(new Runnable() {
                     @Override
@@ -65,6 +67,7 @@ public class SuggestionActivity extends AppCompatActivity {
                         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "tema.php", "POST", "UTF-8");
                         httpRequest.addParam("titulo",titulo);
                         httpRequest.addParam("descricao",descricao);
+                        httpRequest.addParam("login",login);
 
                         try{
                             InputStream is = httpRequest.execute();
@@ -77,8 +80,6 @@ public class SuggestionActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Config.setTitulo(SuggestionActivity.this, titulo);
-                                        Config.setDesc(SuggestionActivity.this, descricao);
                                         Toast.makeText(SuggestionActivity.this,"Sugestão enviada com sucesso", Toast.LENGTH_LONG).show();
                                         Intent i = new Intent(SuggestionActivity.this, HomeActivity.class);
                                         startActivity(i);

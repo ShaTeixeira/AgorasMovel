@@ -57,4 +57,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:subtitleTextColor="#FFFFFF"
         app:titleTextColor="#FFFFFF" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

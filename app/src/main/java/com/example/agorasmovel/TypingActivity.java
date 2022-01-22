@@ -52,7 +52,7 @@ public class TypingActivity extends AppCompatActivity {
                     return;
                 }
 
-                String login = Config.getLogin(TypingActivity.this);
+                final String login = Config.getLogin(TypingActivity.this);
 
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(new Runnable() {
