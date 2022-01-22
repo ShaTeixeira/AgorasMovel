@@ -28,11 +28,24 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                v.setEnabled(false);
+
                 EditText etLogin = findViewById(R.id.etEmailLogin);
                 final String login = etLogin.getText().toString();
+                if(login.isEmpty()){
+                    Toast.makeText(LoginActivity.this, "Campo de login não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
+                    return;
+                }
 
                 EditText etPassword = findViewById(R.id.etPassword);
                 final String password = etPassword.getText().toString();
+                if(password.isEmpty()){
+                    Toast.makeText(LoginActivity.this, "Campo de senha não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
+                    return;
+                }
 
 
                 ExecutorService executorService = Executors.newSingleThreadExecutor();

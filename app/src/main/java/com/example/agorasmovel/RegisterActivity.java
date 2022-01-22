@@ -27,10 +27,13 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                v.setEnabled(false);
+
                 EditText etNewEmail =  findViewById(R.id.etEmailResgister);
                 final String newEmail = etNewEmail.getText().toString();
                 if(newEmail.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Campo de email não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 
@@ -38,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String newName = etNewName.getText().toString();
                 if(newName.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Campo de usuario não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 
@@ -45,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String newLogin = etNewLogin.getText().toString();
                 if(newLogin.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Campo de usuario não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 
@@ -52,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String newPassword = etNewPassword.getText().toString();
                 if(newPassword.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Campo de senha não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 
@@ -59,11 +65,13 @@ public class RegisterActivity extends AppCompatActivity {
                 String newPasswordCheck = etNewPasswordCheck.getText().toString();
                 if(newPasswordCheck.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Campo de checagem de senha não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 
                 if(!newPassword.equals(newPasswordCheck)) {
                     Toast.makeText(RegisterActivity.this, "Senha não confere", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 

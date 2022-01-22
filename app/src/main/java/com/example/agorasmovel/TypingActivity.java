@@ -45,10 +45,13 @@ public class TypingActivity extends AppCompatActivity {
         btnSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                v.setEnabled(false);
+
                 EditText etcomentario = findViewById(R.id.etMessage);
                 final String comentario = etcomentario.getText().toString();
                 if(comentario.isEmpty()){
                     Toast.makeText(TypingActivity.this, "Digite um comentario", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 

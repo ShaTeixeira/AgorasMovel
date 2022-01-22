@@ -70,11 +70,14 @@ public class EditPerfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                v.setEnabled(false);
+
 
                 EditText etEditName = findViewById(R.id.etEditName);
                 final String editName = etEditName.getText().toString();
                 if(editName.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de nome não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 
@@ -82,6 +85,7 @@ public class EditPerfilActivity extends AppCompatActivity {
                 final String editUser = etEditUserName.getText().toString();
                 if(editUser.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de usuario não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 
@@ -89,6 +93,7 @@ public class EditPerfilActivity extends AppCompatActivity {
                 final String editEmail = etEditEmail.getText().toString();
                 if(editEmail.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de email não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 
@@ -97,6 +102,7 @@ public class EditPerfilActivity extends AppCompatActivity {
                 final String editBio = etEditBio.getText().toString();
                 if(editBio.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de bio não preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
                     return;
                 }
 
