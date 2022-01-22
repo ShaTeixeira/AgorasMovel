@@ -1,5 +1,8 @@
 package com.example.agorasmovel;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,41 +15,51 @@ import java.util.List;
 
 public class MyAdapterComentario extends RecyclerView.Adapter {
 
-    HomeActivity homeActivity;
-    List<Comentario> itens;
+    Context context;
+    List<Comentario> comentarios;
 
-    public MyAdapterComentario(HomeActivity homeActivity, List<Comentario> itens) {
-        this.homeActivity = homeActivity;
-        this.itens = itens;
+    public MyAdapterComentario(HomeActivity context, List<Comentario> comentarios) {
+        this.context = context;
+        this.comentarios = comentarios;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(homeActivity);
-        View v = null;
-        v = inflater.inflate(R.layout.item_argument, parent, false);
-
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View v = inflater.inflate(R.layout.item_argument, parent, false);
         return new MyViewHolderComentario(v);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Comentario comentario = itens.get(position);
-        View v = holder.itemView;
+        Comentario comentario = this.comentarios.get(position);
 
-        ImageView imgPhoto = v.findViewById(R.id.imgPhoto);
-        imgPhoto.setImageResource(comentario.photoPerfil);
 
-        TextView tvNameItem = v.findViewById(R.id.tvNameItem);
-        tvNameItem.setText(comentario.nomePerfil);
+        /*PEGAR IMAGEM
 
-        TextView tvContent = v.findViewById(R.id.tvContent);
-        tvContent.setText(comentario.conteudo);
+        Bitmap imgPhoto = holder.itemView.findViewById(R.id.imgPhoto);
+        imgPhoto.setImageResource(comentario.getPhotoPerfil());*/
+
+        TextView tvNameItem = holder.itemView.findViewById(R.id.tvNameItem);
+        tvNameItem.setText(comentario.getNomePerfil());
+
+        TextView tvContent = holder.itemView.findViewById(R.id.tvContent);
+        tvContent.setText(comentario.getConteudo());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context,HomeActivity.class);
+                i.putExtra("id_comentario",comentario.getId_comentario());
+                context.startActivity(i);
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
-        return itens.size();
+        return comentarios.size();
     }
 
 }

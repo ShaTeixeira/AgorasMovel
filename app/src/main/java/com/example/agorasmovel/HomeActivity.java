@@ -1,12 +1,16 @@
 package com.example.agorasmovel;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -33,20 +37,23 @@ public class HomeActivity extends AppCompatActivity {
         ExpandableTextView expTv1 = (ExpandableTextView) findViewById(R.id.expand_text_view);
         expTv1.setText(dropdownText);
 
-
-        HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);
-        List<Comentario> itens = vm.getItens();
-
-        MyAdapterComentario myAdapterComentario = new MyAdapterComentario(this, itens);
-
         RecyclerView rvDebates = findViewById(R.id.rvDebates);
         rvDebates.setHasFixedSize(true);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvDebates.setLayoutManager(layoutManager);
 
-        rvDebates.setAdapter(myAdapterComentario);
+        HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);
+        LiveData<List<Comentario>> comentarios = vm.getComentarios();
 
+        comentarios.observe(this, new Observer<List<Comentario>>() {
+            @Override
+            public void onChanged(List<Comentario> comentarios) {
+                //nova lista de comentarios
+                MyAdapterComentario myAdapterComentario = new MyAdapterComentario(HomeActivity.this,comentarios);
+                rvDebates.setAdapter(myAdapterComentario);
+            }
+        });
 
         FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
         fabAdd.setOnClickListener(new View.OnClickListener() {
@@ -57,11 +64,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        //conectar com o servidor - comentario
-
-
-
-    }
+     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -102,6 +105,19 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i);
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    static int ADD_PRODUCT_ACTIVITY_RESULT = 2;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == ADD_PRODUCT_ACTIVITY_RESULT){
+            if(resultCode == Activity.RESULT_OK){
+                HomeViewModel mainViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+                mainViewModel.refreshProducts();
+            }
         }
     }
 }

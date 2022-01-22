@@ -3,6 +3,8 @@ package com.example.agorasmovel;
 import android.graphics.Bitmap;
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import org.json.JSONArray;
@@ -18,14 +20,23 @@ import java.util.concurrent.Executors;
 
 public class HomeViewModel extends ViewModel {
 
-    //armazena a lista de comentarios???
-    List<Comentario> itens = new ArrayList<>();
+    //armazena a lista de comentarios
+    MutableLiveData<List<Comentario>> comentarios;
 
-    //id do comentario de for criado na classe comentario.java
-    // String idComentario;
+    public LiveData<List<Comentario>> getComentarios(){
+        if(comentarios==null){
+            comentarios = new MutableLiveData<List<Comentario>>();
+            loadComentarios();
+        }
+        return comentarios;
+    }
+    //recarregar
+    public void refreshProducts(){
+        loadComentarios();
+    }
 
     public HomeViewModel() {
-        Comentario i0 = new Comentario();
+        /*Comentario i0 = new Comentario();
         i0.photoPerfil = R.drawable.pfp_ex1;
         i0.nomePerfil = "Charles";
         i0.conteudo = "Não concordo";
@@ -50,31 +61,21 @@ public class HomeViewModel extends ViewModel {
         itens.add(i0);
         itens.add(i1);
         itens.add(i2);
-        itens.add(i3);
+        itens.add(i3);*/
     }
 
-    // puxando comentarios
-    public List<Comentario> getItens() {
-        //pegando as infos do Array (verifica se ta certo isso pfvr kkkkk)
-        //if(this.itens == null){
-            //itens = new ArrayList<Comentario>();
-            //loadComentario();
-        //}
-        return itens;
-    }
-
-    //classe que vai carregar o Comentario na tela de Home -> o professor fez na model, por isso montei aqui tbm
-    // caso de certo, a gnt consegue aplicar para as outras so ir alterando
-    /*void loadComentario(){
+    //conexão com o servidor
+    void loadComentarios(){
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "comentario.php", "POST", "UTF-8");
-                httpRequest.addParam("idComentario", idComentario);
+                List<Comentario> comentariosList = new ArrayList<>();
+
+                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_all_coments.php", "POST", "UTF-8");
 
                 try {
-                   final InputStream is = httpRequest.execute();
+                   InputStream is = httpRequest.execute();
                    String result = Util.inputStream2String(is, "utf-8");
                     httpRequest.finish();
                     Log.d("HTTP_REQUEST_RESULT", result);
@@ -84,28 +85,38 @@ public class HomeViewModel extends ViewModel {
                     int success = jsonObject.getInt("success");
                     if(success == 1){
                         JSONArray jsonArray = jsonObject.getJSONArray("comentario");
-                        JSONObject jComentario = jsonArray.getJSONObject(0);
+                        for(int i = 0; i < jsonArray.length(); i++){
+                            JSONObject jProduct = jsonArray.getJSONObject(i);
 
-                        //dados do comentario, valores da classe comentario.java
-
-                        String nomePerfil = jComentario.getString("nomePerfil");
-                        String conteudo = jComentario.getString("conteudo");
-
-                        //imagem  em base 64
-                        //String imgBase64 = jComentario.getString("img");
-                        //pegar primera parte da string
-                        //String pureBase64Encoded = imgBase64.substring(imgBase64.indexOf(",") + 1);
-                        //Bitmap img = Util.base642Bitmap(pureBase64Encoded);
-
-                        //Comentario c = new Comentario(nomePerfil, conteudo);
-                        //itens.postValue(c);
-                        //Product p = new Product(name, price, description, img);
-                        //product.postValue(p);
+                            int id_comentario = jProduct.getInt("id_comentario");
+                            String texto = jProduct.getString("comentario");
+                            //criando um produto
+                            Comentario comentario = new Comentario(id_comentario, texto);
+                            comentariosList.add(comentario);
+                        }
+                        //armazenar nova list
+                        comentarios.postValue(comentariosList);
                     }
+                    ;
                 } catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }
             }
         });
-    }*/
+    }
+    /*dados do comentario, valores da classe comentario.java
+
+    String nomePerfil = jComentario.getString("nomePerfil");
+    String conteudo = jComentario.getString("conteudo");
+
+    //imagem  em base 64
+    //String imgBase64 = jComentario.getString("img");
+    //pegar primera parte da string
+    //String pureBase64Encoded = imgBase64.substring(imgBase64.indexOf(",") + 1);
+    //Bitmap img = Util.base642Bitmap(pureBase64Encoded);
+
+    //Comentario c = new Comentario(nomePerfil, conteudo);
+    //itens.postValue(c);
+    //Product p = new Product(name, price, description, img);
+    //product.postValue(p);*/
 }
