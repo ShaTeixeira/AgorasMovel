@@ -3,8 +3,10 @@ package com.example.agorasmovel;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,11 +15,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
@@ -32,6 +37,16 @@ public class EditPerfilActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.tbMain);
         setSupportActionBar(toolbar);
+
+        ImageButton imgEditPhoto = findViewById(R.id.imgEditPhoto);
+        PhotoViewModel photoViewModel = new ViewModelProvider(this).get(PhotoViewModel.class);
+        String currentPhotoPath = PhotoViewModel.getCurrentPhotoPath();
+        //verificar se tem foto
+        if(!currentPhotoPath.isEmpty()){
+            ImageView imvPhoto = findViewById(R.id.imgEditPhoto);
+            Bitmap bitmap = Util.getBitmap(currentPhotoPath, imvPhoto.getWidth(), imvPhoto.getHeight());
+            imvPhoto.setImageBitmap(bitmap);
+        }
 
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,8 +69,7 @@ public class EditPerfilActivity extends AppCompatActivity {
         btnEditSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageButton imgEditPhoto = findViewById(R.id.imgEditPhoto);
-                //codigo url img
+
 
                 EditText etEditName = findViewById(R.id.etEditName);
                 final String editName = etEditName.getText().toString();
@@ -80,10 +94,26 @@ public class EditPerfilActivity extends AppCompatActivity {
 
 
                 EditText etEditBio = findViewById(R.id.etEditBio);
-                final String editBio = etEditName.getText().toString();
+                final String editBio = etEditBio.getText().toString();
                 if(editBio.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de bio não preenchido", Toast.LENGTH_LONG).show();
                     return;
+                }
+
+                //VERIFICA SE A FOTO FOI ADICIONADA
+                String currentPhotoPath = PhotoViewModel.getCurrentPhotoPath();
+                if(currentPhotoPath.isEmpty()){
+                    Toast.makeText(EditPerfilActivity.this, "Não foi enviada uma imagem", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
+                    return;
+                }
+
+
+                //escalou a imagem antes
+                try {
+                    Util.scaleImage(currentPhotoPath, 1000, 300);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
                 }
 
                 final String login = Config.getLogin(EditPerfilActivity.this);
@@ -92,11 +122,12 @@ public class EditPerfilActivity extends AppCompatActivity {
                 executorService.execute(new Runnable() {
                     @Override
                     public void run() {
-                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "ediatrPerfil.php", "POST", "UTF-8");
+                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "editPerfil.php", "POST", "UTF-8");
                         httpRequest.addParam("editName", editName);
-                        httpRequest.addParam("editName", editUser);
+                        httpRequest.addParam("editUser", editUser);
                         httpRequest.addParam("editEmail",editEmail);
                         httpRequest.addParam("editBio", editBio);
+                        httpRequest.addFile("editImg", new File(currentPhotoPath));
                         httpRequest.addParam("login",login);
 
 
@@ -111,6 +142,7 @@ public class EditPerfilActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
+                                        Config.setLogin(EditPerfilActivity.this, editEmail);
                                         Toast.makeText(EditPerfilActivity.this,"Perfil atualizado com sucesso", Toast.LENGTH_LONG).show();
                                         Intent i = new Intent(EditPerfilActivity.this, PerfilActivity.class);
                                         startActivity(i);

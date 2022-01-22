@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -82,6 +83,19 @@ public class Util {
     {
         byte[] imageAsBytes = Base64.decode(myImageData.getBytes(),Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+    }
+
+    public static void scaleImage(String imageLocation, int factor, int scaleFactor) throws FileNotFoundException {
+        // Decode the image file into a Bitmap sized to fill the View
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true;
+
+        Bitmap bmp =  BitmapFactory.decodeFile(imageLocation, bmOptions);
+
+        FileOutputStream out = new FileOutputStream(imageLocation);
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);
     }
 
 }

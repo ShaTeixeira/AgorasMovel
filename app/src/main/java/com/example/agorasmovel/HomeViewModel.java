@@ -1,8 +1,11 @@
 package com.example.agorasmovel;
 
+import android.app.Application;
 import android.graphics.Bitmap;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -18,10 +21,14 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class HomeViewModel extends ViewModel {
+public class HomeViewModel extends AndroidViewModel {
 
     //armazena a lista de comentarios
     MutableLiveData<List<Comentario>> comentarios;
+
+    public HomeViewModel(@NonNull Application application) {
+        super(application);
+    }
 
     public LiveData<List<Comentario>> getComentarios(){
         if(comentarios==null){
@@ -30,13 +37,14 @@ public class HomeViewModel extends ViewModel {
         }
         return comentarios;
     }
+
     //recarregar
     public void refreshProducts(){
         loadComentarios();
     }
 
-    public HomeViewModel() {
-        /*Comentario i0 = new Comentario();
+    /*public HomeViewModel() {
+        Comentario i0 = new Comentario();
         i0.photoPerfil = R.drawable.pfp_ex1;
         i0.nomePerfil = "Charles";
         i0.conteudo = "Não concordo";
@@ -61,11 +69,14 @@ public class HomeViewModel extends ViewModel {
         itens.add(i0);
         itens.add(i1);
         itens.add(i2);
-        itens.add(i3);*/
-    }
+        itens.add(i3);
+    }*/
 
     //conexão com o servidor
     void loadComentarios(){
+
+        final String login = Config.getLogin(getApplication());
+
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(new Runnable() {
             @Override
@@ -73,6 +84,7 @@ public class HomeViewModel extends ViewModel {
                 List<Comentario> comentariosList = new ArrayList<>();
 
                 HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_all_coments.php", "POST", "UTF-8");
+                httpRequest.addParam("login",login);
 
                 try {
                    InputStream is = httpRequest.execute();
@@ -90,8 +102,14 @@ public class HomeViewModel extends ViewModel {
 
                             int id_comentario = jProduct.getInt("id_comentario");
                             String texto = jProduct.getString("comentario");
+                            String nomePerfil = jProduct.getString("nomePerfil");
+
+                            String imgBase64 = jProduct.getString("img");
+                            String pureBase64Encoded = imgBase64.substring(imgBase64.indexOf(",")+1);
+                            Bitmap img = Util.base642Bitmap((pureBase64Encoded));
+
                             //criando um produto
-                            Comentario comentario = new Comentario(id_comentario, texto);
+                            Comentario comentario = new Comentario(texto, nomePerfil, img, id_comentario);
                             comentariosList.add(comentario);
                         }
                         //armazenar nova list

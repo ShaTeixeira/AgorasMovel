@@ -43,6 +43,7 @@ public class HomeActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvDebates.setLayoutManager(layoutManager);
 
+
         HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);
         LiveData<List<Comentario>> comentarios = vm.getComentarios();
 

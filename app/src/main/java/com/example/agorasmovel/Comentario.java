@@ -9,9 +9,10 @@ public class Comentario {
     String conteudo;
     int id_comentario;
 
-    public Comentario(int id_comentario, String conteudo){
+    public Comentario(int id_comentario, String conteudo, String nomePerfil){
         this.id_comentario = id_comentario;
         this.conteudo = conteudo;
+        this.nomePerfil = nomePerfil;
     }
 
     public Comentario(String conteudo, String nomePerfil, Bitmap photo, int id_comentario){

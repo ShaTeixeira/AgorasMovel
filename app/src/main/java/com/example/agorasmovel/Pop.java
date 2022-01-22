@@ -13,6 +13,15 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Pop extends Activity {
     @Override
@@ -41,7 +50,44 @@ public class Pop extends Activity {
             @Override
             public void onClick(View v) {
                 //Deletar conta
+                ExecutorService executorService = Executors.newSingleThreadExecutor();
+                executorService.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "deleteUser.php", "POST","UTF-8");
 
+                        try {
+                            InputStream is = httpRequest.execute();
+                            String result = Util.inputStream2String(is, "UTF-8");
+                            httpRequest.finish();
+
+                            JSONObject jsonObject = new JSONObject(result);
+                            final int success = jsonObject.getInt("success");
+                            if (success==1){
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(Pop.this,"Usuario deletado com sucesso", Toast.LENGTH_LONG).show();
+                                        Intent i = new Intent(Pop.this,LoginActivity.class);
+                                        startActivity(i);
+                                    }
+                                });
+                            }else{
+                                final String error = jsonObject.getString("error");
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(Pop.this, error, Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+                        }
+                        catch (IOException | JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
 
             }
         });

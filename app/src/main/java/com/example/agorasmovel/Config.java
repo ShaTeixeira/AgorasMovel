@@ -30,6 +30,7 @@ public class Config {
         return mPrefs.getString("login", "");
     }
 
+
     //senha
 
     public static void setPassword(Context context, String password) {
