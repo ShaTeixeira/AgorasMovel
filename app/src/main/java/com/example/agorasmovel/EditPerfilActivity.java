@@ -57,14 +57,6 @@ public class EditPerfilActivity extends AppCompatActivity {
             requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},PERMISSION_REQUEST);
         }
 
-        /*ImageView imgEditPhoto = findViewById(R.id.imgEditPhoto);
-        imgEditPhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(i, RESULT_LOAD_IMAGE);
-            }
-        });*/
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editperfil);
@@ -72,22 +64,22 @@ public class EditPerfilActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.tbMain);
         setSupportActionBar(toolbar);
 
-        PhotoViewModel photoViewModel = new ViewModelProvider(this).get(PhotoViewModel.class);
-        String currentPhotoPath = photoViewModel.getCurrentPhotoPath();
+        EditPerfilViewModel editPerfilViewModel = new ViewModelProvider(this).get(EditPerfilViewModel.class);
+        String currentPhotoPath = editPerfilViewModel.getCurrentPhotoPath();
         //verificar se tem foto
         if(!currentPhotoPath.isEmpty()){
             ImageView imvPhoto = findViewById(R.id.imgEditPhoto);
-            Bitmap bitmap = Util.getBitmap(currentPhotoPath, imvPhoto.getWidth(), imvPhoto.getHeight());
+            Bitmap bitmap = Util.getBitmap(currentPhotoPath);
             imvPhoto.setImageBitmap(bitmap);
-        }
-
-        toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(EditPerfilActivity.this, HomeActivity.class);
-                startActivity(i);
+        }else{
+            File imageFile = null;
+            try {
+                imageFile = createImageFile();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        });
+            editPerfilViewModel.setCurrentPhotoPath(imageFile.getAbsolutePath());
+        }
 
         Button btnPopup = findViewById(R.id.btnPop);
         btnPopup.setOnClickListener(new View.OnClickListener() {
@@ -103,14 +95,10 @@ public class EditPerfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                v.setEnabled(false);
-
-
                 EditText etEditName = findViewById(R.id.etEditName);
                 final String editName = etEditName.getText().toString();
                 if(editName.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de nome não preenchido", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
                     return;
                 }
 
@@ -118,7 +106,6 @@ public class EditPerfilActivity extends AppCompatActivity {
                 final String editUser = etEditUserName.getText().toString();
                 if(editUser.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de usuario não preenchido", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
                     return;
                 }
 
@@ -126,7 +113,6 @@ public class EditPerfilActivity extends AppCompatActivity {
                 final String editEmail = etEditEmail.getText().toString();
                 if(editEmail.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de email não preenchido", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
                     return;
                 }
 
@@ -135,18 +121,15 @@ public class EditPerfilActivity extends AppCompatActivity {
                 final String editBio = etEditBio.getText().toString();
                 if(editBio.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Campo de bio não preenchido", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
                     return;
                 }
 
                 //VERIFICA SE A FOTO FOI ADICIONADA
-                String currentPhotoPath = photoViewModel.getCurrentPhotoPath();
+                String currentPhotoPath = editPerfilViewModel.getCurrentPhotoPath();
                 if(currentPhotoPath.isEmpty()){
                     Toast.makeText(EditPerfilActivity.this, "Não foi enviada uma imagem", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
                     return;
                 }
-
 
                 //escalou a imagem antes
                 try {
@@ -211,51 +194,14 @@ public class EditPerfilActivity extends AppCompatActivity {
         imvLoadPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dispatchTakePictureIntent();
-                /*
-
-
-                Toast.makeText(EditPerfilActivity.this,"aaaaaaaaaa",Toast.LENGTH_SHORT).show();
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"),PERMISSION_REQUEST);
-                startActivityForResult(
-                        new Intent(
-                                Intent.ACTION_PICK,
-                                android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI
-                        ),
-                        PERMISSION_REQUEST
-                );*/
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent, PICK_IMAGE);
             }
         });
     }
-    //tirar a foto
-    private void dispatchTakePictureIntent(){
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, PICK_IMAGE);
 
-        //salvar a foto dentro do arquivo file
-        /*File f = null;
-        try {
-            f = createImageFile();
-        } catch (IOException e) {
-            Toast.makeText(EditPerfilActivity.this, "Não foi possivel criar o arquivo ", Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        //endereco da foto
-        EditPerfilViewModel editPerfilActivity = new ViewModelProvider(this).get(EditPerfilViewModel.class);
-        editPerfilActivity.setCurrentPhotoPath(f.getAbsolutePath());
-
-        //onde o intent vai salvar a foto
-        if(f != null){
-            //gerar um endereco URI, para a foto, acessar arquivo
-            Uri fUri = FileProvider.getUriForFile(EditPerfilActivity.this, "com.example.produtos.fileprovider", f);
-            i.putExtra(MediaStore.EXTRA_OUTPUT, fUri);
-            startActivityForResult(i, RESULT_TAKE_PICTURE);
-        }*/
-
-    }
     //salvar arquivos
     private File createImageFile() throws IOException {
         //data para salvar, para não salvar as fotos por cima de outras
@@ -280,24 +226,6 @@ public class EditPerfilActivity extends AppCompatActivity {
         }
     }
 
-    /*@Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
-            case RESULT_LOAD_IMAGE:
-                if(resultCode==RESULT_OK){
-                    Uri selectedImage=data.getData();
-                    String[] filePathColumn = {MediaStore.Images.Media.DATA};
-                    Cursor cursor = getContentResolver().query(selectedImage,filePathColumn,null,null,null,null);
-                    cursor.moveToFirst();
-                    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                    String picturePath = cursor.getString(columnIndex);
-                    cursor.close();
-
-                }
-        }
-    }*/
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -305,17 +233,18 @@ public class EditPerfilActivity extends AppCompatActivity {
         if(requestCode == PICK_IMAGE){
             EditPerfilViewModel perfilViewModel = new ViewModelProvider(this).get(EditPerfilViewModel.class);
             String currentPhotoPath = perfilViewModel.getCurrentPhotoPath();
-            //VERIFICAR SE FOI TIRADA A FOTO
+            //VERIFICAR SE FOI ENVIADA
             if(resultCode == Activity.RESULT_OK){
+                Uri selectedImage = data.getData();
                 ImageView imvLoadPhoto = findViewById(R.id.imgEditPhoto);
-                Bitmap bitmap = Util.getBitmap(currentPhotoPath, imvLoadPhoto.getWidth(), imvLoadPhoto.getHeight());
-                imvLoadPhoto.setImageBitmap(bitmap);
-            }
-            else{
-                //arquivo vazio "excluido"
-                File f = new File(currentPhotoPath);
-                f.delete();
-                perfilViewModel.setCurrentPhotoPath("");
+                Bitmap bitmap = null;
+                try {
+                    bitmap = Util.getBitmap(this,selectedImage);
+                    imvLoadPhoto.setImageBitmap(bitmap);
+                    Util.saveImage(bitmap,currentPhotoPath);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

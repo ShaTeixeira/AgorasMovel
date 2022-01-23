@@ -3,6 +3,10 @@ package com.example.agorasmovel;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class PerfilActivity extends AppCompatActivity {
 
@@ -30,6 +35,20 @@ public class PerfilActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        PerfilActivityViewModel vm = new ViewModelProvider(this).get(PerfilActivityViewModel.class);
+        vm.loadPerfil();
+        LiveData<String> namelv = vm.getNamelv();
+        namelv.observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                TextView tvName = findViewById(R.id.tvNameUser);
+                tvName.setText(s);
+            }
+        });
+
+
+
 
         Button btnEditPassword = findViewById(R.id.btnEditPassword);
         btnEditPassword.setOnClickListener(new View.OnClickListener() {
