@@ -42,7 +42,6 @@ public class EditPerfilActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST =0;
     private static final int RESULT_LOAD_IMAGE = 1;
 
-    ImageView imageView = findViewById(R.id.imgEditPhoto);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -229,7 +228,6 @@ public class EditPerfilActivity extends AppCompatActivity {
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                     String picturePath = cursor.getString(columnIndex);
                     cursor.close();
-                    imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
                 }
         }

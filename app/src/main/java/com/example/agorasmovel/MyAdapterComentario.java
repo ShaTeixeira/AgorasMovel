@@ -34,11 +34,8 @@ public class MyAdapterComentario extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Comentario comentario = this.comentarios.get(position);
 
-
-        /*PEGAR IMAGEM
-
-        Bitmap imgPhoto = holder.itemView.findViewById(R.id.imgPhoto);
-        imgPhoto.setImageResource(comentario.getPhotoPerfil());*/
+        ImageView imageView = holder.itemView.findViewById(R.id.imgPhoto);
+        imageView.setImageBitmap(comentario.getPhotoPerfil());
 
         TextView tvNameItem = holder.itemView.findViewById(R.id.tvNameItem);
         tvNameItem.setText(comentario.getNomePerfil());

@@ -9,6 +9,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -104,7 +105,9 @@ public class HomeViewModel extends AndroidViewModel {
                             String texto = jProduct.getString("comentario");
                             String nomePerfil = jProduct.getString("nomePerfil");
 
+                            //imagem  em base 64
                             String imgBase64 = jProduct.getString("img");
+                            // pegar primera parte da string
                             String pureBase64Encoded = imgBase64.substring(imgBase64.indexOf(",")+1);
                             Bitmap img = Util.base642Bitmap((pureBase64Encoded));
 
@@ -122,6 +125,7 @@ public class HomeViewModel extends AndroidViewModel {
             }
         });
     }
+
     /*dados do comentario, valores da classe comentario.java
 
     String nomePerfil = jComentario.getString("nomePerfil");
