@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/imgEditPhoto"
         android:scaleType="centerCrop"
         android:layout_width="150dp"

@@ -5,9 +5,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -16,6 +18,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,13 +37,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class EditPerfilActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST =0;
-    private static final int RESULT_LOAD_IMAGE = 1;
+    //private static final int RESULT_LOAD_IMAGE = 1;
+    public static final int PICK_IMAGE = 1;
+    static int RESULT_TAKE_PICTURE = 2;
 
 
     @Override
@@ -50,14 +57,14 @@ public class EditPerfilActivity extends AppCompatActivity {
             requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},PERMISSION_REQUEST);
         }
 
-        ImageView imgEditPhoto = findViewById(R.id.imgEditPhoto);
+        /*ImageView imgEditPhoto = findViewById(R.id.imgEditPhoto);
         imgEditPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
             }
-        });
+        });*/
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editperfil);
@@ -199,6 +206,64 @@ public class EditPerfilActivity extends AppCompatActivity {
 
             }
         });
+
+        ImageView imvLoadPhoto = findViewById(R.id.imgEditPhoto);
+        imvLoadPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchTakePictureIntent();
+                /*
+
+
+                Toast.makeText(EditPerfilActivity.this,"aaaaaaaaaa",Toast.LENGTH_SHORT).show();
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"),PERMISSION_REQUEST);
+                startActivityForResult(
+                        new Intent(
+                                Intent.ACTION_PICK,
+                                android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI
+                        ),
+                        PERMISSION_REQUEST
+                );*/
+            }
+        });
+    }
+    //tirar a foto
+    private void dispatchTakePictureIntent(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE);
+
+        //salvar a foto dentro do arquivo file
+        /*File f = null;
+        try {
+            f = createImageFile();
+        } catch (IOException e) {
+            Toast.makeText(EditPerfilActivity.this, "Não foi possivel criar o arquivo ", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //endereco da foto
+        EditPerfilViewModel editPerfilActivity = new ViewModelProvider(this).get(EditPerfilViewModel.class);
+        editPerfilActivity.setCurrentPhotoPath(f.getAbsolutePath());
+
+        //onde o intent vai salvar a foto
+        if(f != null){
+            //gerar um endereco URI, para a foto, acessar arquivo
+            Uri fUri = FileProvider.getUriForFile(EditPerfilActivity.this, "com.example.produtos.fileprovider", f);
+            i.putExtra(MediaStore.EXTRA_OUTPUT, fUri);
+            startActivityForResult(i, RESULT_TAKE_PICTURE);
+        }*/
+
+    }
+    //salvar arquivos
+    private File createImageFile() throws IOException {
+        //data para salvar, para não salvar as fotos por cima de outras
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp;
+        File storegeDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File f = File.createTempFile(imageFileName, ".jpg", storegeDir); //vai armazenar foto em extensao jpg
+        return f; //retorna a foto
     }
 
     @Override
@@ -215,7 +280,7 @@ public class EditPerfilActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode){
@@ -231,7 +296,30 @@ public class EditPerfilActivity extends AppCompatActivity {
 
                 }
         }
+    }*/
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PICK_IMAGE){
+            EditPerfilViewModel perfilViewModel = new ViewModelProvider(this).get(EditPerfilViewModel.class);
+            String currentPhotoPath = perfilViewModel.getCurrentPhotoPath();
+            //VERIFICAR SE FOI TIRADA A FOTO
+            if(resultCode == Activity.RESULT_OK){
+                ImageView imvLoadPhoto = findViewById(R.id.imgEditPhoto);
+                Bitmap bitmap = Util.getBitmap(currentPhotoPath, imvLoadPhoto.getWidth(), imvLoadPhoto.getHeight());
+                imvLoadPhoto.setImageBitmap(bitmap);
+            }
+            else{
+                //arquivo vazio "excluido"
+                File f = new File(currentPhotoPath);
+                f.delete();
+                perfilViewModel.setCurrentPhotoPath("");
+            }
+        }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
