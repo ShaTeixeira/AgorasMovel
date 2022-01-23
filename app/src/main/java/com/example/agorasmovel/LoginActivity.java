@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 executorService.execute(new Runnable() {
                     @Override
                     public void run() {
-                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "login.php", "POST", "UTF-8");
+                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "login.php", "GET", "UTF-8");
                         httpRequest.setBasicAuth(login, password);
 
                         try {

@@ -64,6 +64,14 @@ public class EditPerfilActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.tbMain);
         setSupportActionBar(toolbar);
 
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(EditPerfilActivity.this, HomeActivity.class);
+                startActivity(i);
+            }
+        });
+
         EditPerfilViewModel editPerfilViewModel = new ViewModelProvider(this).get(EditPerfilViewModel.class);
         String currentPhotoPath = editPerfilViewModel.getCurrentPhotoPath();
         //verificar se tem foto
@@ -149,7 +157,7 @@ public class EditPerfilActivity extends AppCompatActivity {
                         httpRequest.addParam("editUser", editUser);
                         httpRequest.addParam("editEmail",editEmail);
                         httpRequest.addParam("editBio", editBio);
-                        httpRequest.addFile("editImg", new File(currentPhotoPath));
+                        httpRequest.addFile("img", new File(currentPhotoPath));
                         httpRequest.addParam("login",login);
 
 
