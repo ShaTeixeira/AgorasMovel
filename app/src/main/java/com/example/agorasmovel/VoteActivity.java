@@ -1,12 +1,16 @@
 package com.example.agorasmovel;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,18 +30,11 @@ public class VoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote);
 
-        VoteViewModel vtm = new ViewModelProvider(this).get(VoteViewModel.class);
-        List<ItemVote> itensVote = vtm.getVoteItens();
-
-        MyAdapterVote myAdapterVote = new MyAdapterVote(this,itensVote);
-
         RecyclerView rvVote = findViewById(R.id.rvVote);
         rvVote.setHasFixedSize(true);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvVote.setLayoutManager(layoutManager);
-
-        rvVote.setAdapter(myAdapterVote);
 
         Toolbar toolbar = findViewById(R.id.tbMain);
         setSupportActionBar(toolbar);
@@ -46,6 +43,17 @@ public class VoteActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(VoteActivity.this, HomeActivity.class);
                 startActivity(i);
+            }
+        });
+
+        VoteViewModel vtm = new ViewModelProvider(this).get(VoteViewModel.class);
+        LiveData<List<ItemVote>> itensVote = vtm.getItemVote();
+
+        itensVote.observe(this, new Observer<List<ItemVote>>() {
+            @Override
+            public void onChanged(List<ItemVote> itemVotes) {
+                MyAdapterVote myAdapterVote = new MyAdapterVote(VoteActivity.this, itemVotes);
+                rvVote.setAdapter(myAdapterVote);
             }
         });
 
@@ -87,4 +95,5 @@ public class VoteActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }

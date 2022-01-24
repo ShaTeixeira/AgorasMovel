@@ -38,12 +38,15 @@ public class MyAdapterVote extends RecyclerView.Adapter {
         View v =holder.itemView;
 
         TextView tvtitleTheme = v.findViewById(R.id.tvtitleTheme);
-        tvtitleTheme.setText(vote.Name);
+        tvtitleTheme.setText(vote.getTitulo());
 
         TextView tvdescDebate = v.findViewById(R.id.tvDescDebateVote);
-        tvdescDebate.setText(vote.descDebate);
+        tvdescDebate.setText(vote.getDesc());
 
-
+        TextView tvNameUser = v.findViewById(R.id.tvNomeUserVote);
+        String s=vote.getNomeUser();
+        s="Tema sugerido por: "+s;
+        tvNameUser.setHint(s);
     }
 
     @Override

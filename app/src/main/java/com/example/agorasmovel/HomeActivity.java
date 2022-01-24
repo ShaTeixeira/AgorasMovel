@@ -110,16 +110,4 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    static int ADD_PRODUCT_ACTIVITY_RESULT = 2;
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == ADD_PRODUCT_ACTIVITY_RESULT){
-            if(resultCode == Activity.RESULT_OK){
-                HomeViewModel mainViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-                mainViewModel.refreshProducts();
-            }
-        }
-    }
 }

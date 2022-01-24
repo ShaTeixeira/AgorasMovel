@@ -47,14 +47,14 @@ public class MyAdapterComentario extends RecyclerView.Adapter {
         String s = comentario.getNameUser();
         tvUserName.setHint('@'+s);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context,HomeActivity.class);
                 i.putExtra("id_comentario",comentario.getId_comentario());
                 context.startActivity(i);
             }
-        });
+        });*/
 
     }
 
