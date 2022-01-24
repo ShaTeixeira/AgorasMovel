@@ -17,7 +17,7 @@ public class Comentario {
         this.nomeUser = nomeUser;
     }
 
-    public Comentario(String conteudo, String nomePerfil, Bitmap photo, int id_comentario){
+    public Comentario(String conteudo, String nomePerfil, Bitmap photo, int id_comentario, String nomeUser){
         this.id_comentario = id_comentario;
         this.conteudo = conteudo;
         this.photoPerfil = photo;

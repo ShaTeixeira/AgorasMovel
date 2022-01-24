@@ -104,6 +104,7 @@ public class HomeViewModel extends AndroidViewModel {
                             int id_comentario = jProduct.getInt("id_comentario");
                             String texto = jProduct.getString("comentario");
                             String nomePerfil = jProduct.getString("nomePerfil");
+                            String nomeUser = jProduct.getString("nomeUser");
 
                             //imagem  em base 64
                             String imgBase64 = jProduct.getString("img");
@@ -112,7 +113,7 @@ public class HomeViewModel extends AndroidViewModel {
                             Bitmap img = Util.base642Bitmap((pureBase64Encoded));
 
                             //criando um produto
-                            Comentario comentario = new Comentario(texto, nomePerfil, img, id_comentario);
+                            Comentario comentario = new Comentario(texto, nomePerfil, img, id_comentario, nomeUser);
                             comentariosList.add(comentario);
                         }
                         //armazenar nova list

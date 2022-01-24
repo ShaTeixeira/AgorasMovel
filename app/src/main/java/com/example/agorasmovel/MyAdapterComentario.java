@@ -43,6 +43,10 @@ public class MyAdapterComentario extends RecyclerView.Adapter {
         TextView tvContent = holder.itemView.findViewById(R.id.tvContent);
         tvContent.setText(comentario.getConteudo());
 
+        TextView tvUserName = holder.itemView.findViewById(R.id.tvUserNameItem);
+        String s = comentario.getNameUser();
+        tvUserName.setHint('@'+s);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

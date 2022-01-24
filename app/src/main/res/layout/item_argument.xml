@@ -22,31 +22,20 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvNameItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"
-        android:hint="@string/tvNameItem"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imgPhoto"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tvContent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="310dp"
+        android:layout_height="38dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toEndOf="@+id/imgPhoto"
         app:layout_constraintTop_toBottomOf="@+id/tvNameItem" />
 
@@ -94,14 +83,34 @@
         app:tint="@color/purple_500"
         tools:ignore="VectorDrawableCompat" />
 
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvNameItem"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/tvNameItem"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgPhoto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserNameItem"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="start"
         android:hint="nomeUser"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tvNameItem"
         app:layout_constraintTop_toTopOf="parent" />
 
