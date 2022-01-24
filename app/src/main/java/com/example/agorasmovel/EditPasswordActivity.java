@@ -50,7 +50,7 @@ public class EditPasswordActivity extends AppCompatActivity {
                     return;
                 }
 
-                EditText etNewPass = findViewById(R.id.etNewPassword);
+                EditText etNewPass = findViewById(R.id.etNewpassword);
                 final String newPass = etNewPass.getText().toString();
                 if(newPass.isEmpty()){
                     Toast.makeText(EditPasswordActivity.this, "Campo de nova senha não preenchido", Toast.LENGTH_LONG).show();
@@ -77,7 +77,6 @@ public class EditPasswordActivity extends AppCompatActivity {
                     public void run() {
                         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "editPassword.php", "POST", "UTF-8");
                         httpRequest.addParam("login",login);
-                        httpRequest.addParam("oldPass",oldPass);
                         httpRequest.addParam("newPass", newPass);
 
                         try{
