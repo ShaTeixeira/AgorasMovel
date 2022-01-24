@@ -69,11 +69,14 @@ public class EditPasswordActivity extends AppCompatActivity {
                     return;
                 }
 
+                final String login = Config.getLogin(EditPasswordActivity.this);
+
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(new Runnable() {
                     @Override
                     public void run() {
-                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "senha.php", "POST", "UTF-8");
+                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "editPassword.php", "POST", "UTF-8");
+                        httpRequest.addParam("login",login);
                         httpRequest.addParam("oldPass",oldPass);
                         httpRequest.addParam("newPass", newPass);
 

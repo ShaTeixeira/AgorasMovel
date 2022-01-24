@@ -7,61 +7,6 @@ import android.graphics.Bitmap;
 public class Config {
     static String SERVER_URL_BASE = "https://projdebate.herokuapp.com/";
 
-    public static void setName(Context context, String name){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("name", name).commit();
-    }
-
-    public static String getName(Context context) {
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        return mPrefs.getString("name", "");
-    }
-
-    public static void setUserName(Context context, String userName){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("userName", userName).commit();
-    }
-
-    public static String getUserName(Context context) {
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        return mPrefs.getString("userName", "");
-    }
-
-    public static void setBio(Context context, String bio){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("bio", bio).commit();
-    }
-
-    public static String getBio(Context context) {
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        return mPrefs.getString("bio", "");
-    }
-
-    public static void setPhotoPath(Context context, String img){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("img", img).commit();
-    }
-
-    public static String getPhotoPath(Context context) {
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        return mPrefs.getString("img", "");
-    }
-
-    public static void setComentario(Context context, String comentario){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("comentario", comentario).commit();
-    }
-
-    public static String getComentario(Context context){
-        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        return mPrefs.getString("comentario", "");
-    }
-
     //login
 
     public static void setLogin(Context context, String login) {

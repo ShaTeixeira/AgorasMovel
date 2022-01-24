@@ -40,9 +40,9 @@
     <string name="tvHelpRules">Como funciona?</string>
     <string name="etHelp">O aplicativo funciona em uma periodicidade de eventos, variando entre a votação e o debate. Na primeira semana será aberta uma votação com dois temas enviados pelos usuários. Aquele com maioria de votos será levado ao debate, que ficará disponível por mais duas semanas para ser discutido por toda a comunidade. Para participar, clique no botão "+" no canto inferior direito da tela inicial e, antes de escrever sua postagem, escolha a cor referente a como você deseja participar; verde para uma pergunta referente ao tema, laranja para seus argumentos e azul para inserir dados adicionais que agregam ao debate.</string>
 
-    <string name="tvNameUser">Lorena Almeida</string>
-    <string name="tvName">\@x1l1x0</string>
-    <string name="etBio">ᴀ ʜᴇᴀʀᴛ ᴛʜᴀᴛꜱ ꜰᴜʟʟ ᴜᴘ ʟɪᴋᴇ ᴀ ʟᴀɴᴅꜰɪʟʟ ᴀ ᴊᴏʙ ᴛʜᴀᴛ ꜱʟᴏᴡʟʏ ᴋɪʟʟꜱ ʏᴏᴜ ʙʀᴜɪꜱᴇꜱ ᴛʜᴀᴛ ᴡᴏɴᴛ ʜᴇᴀʟ ʏᴏᴜ ʟᴏᴏᴋ ꜱᴏ ᴛɪʀᴇᴅ, ᴜɴʜᴀᴘᴘʏ ʙʀɪɴɢ ᴅᴏᴡɴ ᴛʜᴇ ɢᴏᴠᴇʀɴᴍᴇɴᴛ ᴛʜᴇʏ ᴅᴏɴᴛ, ᴛʜᴇʏ ᴅᴏɴᴛ ꜱᴘᴇᴀᴋ ꜰᴏʀ ᴜꜱ </string>
+    <string name="tvNameUser"></string>
+    <string name="tvName"></string>
+    <string name="etBio"></string>
     <string name="tvJoined">Ingressou em 22/12/2020</string>
     <string name="btnEditPassword">Alterar Senha</string>
 

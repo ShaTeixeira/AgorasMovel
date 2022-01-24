@@ -36,7 +36,7 @@ public class Pop extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.9),(int)(height*.3));
+        getWindow().setLayout((int)(width*.9),(int)(height*.4));
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
@@ -44,6 +44,7 @@ public class Pop extends Activity {
         params.y= -20;
 
         getWindow().setAttributes(params);
+        final String login = Config.getLogin(Pop.this);
 
         Button btnDeleteAcc = findViewById(R.id.btnDelete);
         btnDeleteAcc.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +56,7 @@ public class Pop extends Activity {
                     @Override
                     public void run() {
                         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "deleteUser.php", "POST","UTF-8");
+                        httpRequest.addParam("login",login);
 
                         try {
                             InputStream is = httpRequest.execute();

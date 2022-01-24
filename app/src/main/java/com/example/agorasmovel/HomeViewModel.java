@@ -84,7 +84,7 @@ public class HomeViewModel extends AndroidViewModel {
             public void run() {
                 List<Comentario> comentariosList = new ArrayList<>();
 
-                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_all_coments.php", "POST", "UTF-8");
+                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_all_coments.php", "GET", "UTF-8");
                 httpRequest.addParam("login",login);
 
                 try {

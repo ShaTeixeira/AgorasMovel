@@ -76,7 +76,6 @@ public class TypingActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Config.setComentario(TypingActivity.this, comentario);
                                         Toast.makeText(TypingActivity.this,"Comentario publicado com sucesso", Toast.LENGTH_LONG).show();
                                         Intent i = new Intent(TypingActivity.this, HomeActivity.class);
                                         startActivity(i);

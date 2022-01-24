@@ -56,6 +56,7 @@ public class PerfilActivity extends AppCompatActivity {
             @Override
             public void onChanged(String s) {
                 TextView tvName = findViewById(R.id.tvName);
+                s = '@'+s;
                 tvName.setText(s);
             }
         });
@@ -64,8 +65,8 @@ public class PerfilActivity extends AppCompatActivity {
         biolv.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                TextView tvName = findViewById(R.id.etBio);
-                tvName.setText(s);
+                TextView tvBio = findViewById(R.id.etBio);
+                tvBio.setText(s);
             }
         });
 
