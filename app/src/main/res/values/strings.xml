@@ -47,7 +47,7 @@
     <string name="btnEditPassword">Alterar Senha</string>
 
 
-    <string name="tvSuggestionNew">Sugestão</string>
+    <string name="tvSuggestionNew">Enviar sugestão</string>
     <string name="tvSuggestionTheme">Digite um tema</string>
     <string name="etTheme">Forneça dados sobre o tema escolhido</string>
     <string name="etDescTheme">Descreva com suas proprias palavras ou com fontes externas. Lembre-se de adicionar a sua referência</string>
