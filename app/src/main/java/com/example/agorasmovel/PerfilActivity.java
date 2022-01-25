@@ -61,6 +61,16 @@ public class PerfilActivity extends AppCompatActivity {
             }
         });
 
+        LiveData<String> datelv = vm.getDatelv();
+        datelv.observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                TextView tvData = findViewById(R.id.tvJoined);
+                s = "Ingressou em "+s;
+                tvData.setText(s);
+            }
+        });
+
         LiveData<String> biolv = vm.getBiolv();
         biolv.observe(this, new Observer<String>() {
             @Override

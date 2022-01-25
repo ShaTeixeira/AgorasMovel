@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -39,10 +40,13 @@ public class PerfilActivityViewModel extends AndroidViewModel {
         return imglv;
     }
 
+    public LiveData<String> getDatelv(){return datelv;}
+
     MutableLiveData<String> namelv;
     MutableLiveData<String> userNamelv;
     MutableLiveData<String> biolv;
     MutableLiveData<Bitmap> imglv;
+    MutableLiveData<String> datelv;
 
     public PerfilActivityViewModel(@NonNull Application application) {
         super(application);
@@ -50,6 +54,7 @@ public class PerfilActivityViewModel extends AndroidViewModel {
         userNamelv = new MutableLiveData<>();
         biolv = new MutableLiveData<>();
         imglv = new MutableLiveData<>();
+        datelv = new MutableLiveData<>();
     }
 
     void loadPerfil(){
@@ -74,6 +79,7 @@ public class PerfilActivityViewModel extends AndroidViewModel {
                             String name = jsonObject.getString("name");
                             String userName = jsonObject.getString("userName");
                             String bio = jsonObject.getString("bio");
+                            String ingressou = jsonObject.getString("dataIngresso");
 
                             //imagem  em base 64
                             String imgBase64 = jsonObject.getString("img");
@@ -85,6 +91,8 @@ public class PerfilActivityViewModel extends AndroidViewModel {
                             userNamelv.postValue(userName);
                             biolv.postValue(bio);
                             imglv.postValue(img);
+                            datelv.postValue(ingressou);
+
                         }
                     } catch (JSONException jsonException) {
                     jsonException.printStackTrace();
