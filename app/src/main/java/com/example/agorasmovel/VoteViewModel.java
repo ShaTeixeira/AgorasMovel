@@ -63,14 +63,14 @@ public class VoteViewModel extends AndroidViewModel {
                         for(int i = 0; i < jsonArray.length(); i++){
                             JSONObject jProduct = jsonArray.getJSONObject(i);
 
-                            //int id_tema = jProduct.getInt("id_tema");
+                            String id_tema = jProduct.getString("id_tema");
                             String titulo = jProduct.getString("titulo");
                             String desc = jProduct.getString("desc");
                             String nomeUser= jProduct.getString("nomeUsuario");
                             //likes
 
                             //criando um tema
-                            ItemVote itemVote = new ItemVote(titulo,desc,nomeUser);
+                            ItemVote itemVote = new ItemVote(titulo,desc,nomeUser,id_tema);
                             itemVoteList.add(itemVote);
                         }
                         //armazenar nova list

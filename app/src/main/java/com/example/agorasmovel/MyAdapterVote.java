@@ -1,10 +1,13 @@
 package com.example.agorasmovel;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,7 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MyAdapterVote extends RecyclerView.Adapter {
     VoteActivity voteActivity;
@@ -47,6 +57,50 @@ public class MyAdapterVote extends RecyclerView.Adapter {
         String s=vote.getNomeUser();
         s="Tema sugerido por: "+s;
         tvNameUser.setHint(s);
+
+        final String login = Config.getLogin(v.getContext());
+        final String id_tema = vote.getId_tema();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "curtida.php", "POST", "UTF-8");
+                httpRequest.addParam("login",login);
+                httpRequest.addParam("id_tema",id_tema);
+
+                try{
+                    InputStream is = httpRequest.execute();
+                    String result = Util.inputStream2String(is, "UTF-8");
+                    httpRequest.finish();
+
+                    JSONObject jsonObject = new JSONObject(result);
+                    final int success = jsonObject.getInt("success");
+                    if(success==1){
+                        voteActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(v.getContext(),"Voto carregado com sucesso", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }else{
+                        final String error = jsonObject.getString("error");
+                        voteActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(v.getContext(), error, Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
     }
 
     @Override
