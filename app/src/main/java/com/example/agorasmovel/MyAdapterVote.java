@@ -61,45 +61,49 @@ public class MyAdapterVote extends RecyclerView.Adapter {
         final String login = Config.getLogin(v.getContext());
         final String id_tema = vote.getId_tema();
 
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        executorService.execute(new Runnable() {
+        holder.itemView.findViewById(R.id.imgbtLike).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "curtida.php", "POST", "UTF-8");
-                httpRequest.addParam("login",login);
-                httpRequest.addParam("id_tema",id_tema);
+            public void onClick(View v) {
+                ExecutorService executorService = Executors.newSingleThreadExecutor();
+                executorService.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "curtida.php", "POST", "UTF-8");
+                        httpRequest.addParam("login",login);
+                        httpRequest.addParam("id_tema",id_tema);
 
-                try{
-                    InputStream is = httpRequest.execute();
-                    String result = Util.inputStream2String(is, "UTF-8");
-                    httpRequest.finish();
+                        try{
+                            InputStream is = httpRequest.execute();
+                            String result = Util.inputStream2String(is, "UTF-8");
+                            httpRequest.finish();
 
-                    JSONObject jsonObject = new JSONObject(result);
-                    final int success = jsonObject.getInt("success");
-                    if(success==1){
-                        voteActivity.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(v.getContext(),"Voto carregado com sucesso", Toast.LENGTH_LONG).show();
+                            JSONObject jsonObject = new JSONObject(result);
+                            final int success = jsonObject.getInt("success");
+                            if(success==1){
+                                voteActivity.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(v.getContext(),"", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }else{
+                                final String error = jsonObject.getString("error");
+                                voteActivity.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(v.getContext(), error, Toast.LENGTH_LONG).show();
+                                    }
+                                });
                             }
-                        });
-                    }else{
-                        final String error = jsonObject.getString("error");
-                        voteActivity.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(v.getContext(), error, Toast.LENGTH_LONG).show();
-                            }
-                        });
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                });
             }
         });
-
 
     }
 
