@@ -64,6 +64,9 @@ public class MyAdapterVote extends RecyclerView.Adapter {
         holder.itemView.findViewById(R.id.imgbtLike).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String login = Config.getLogin(v.getContext());
+                final String id_tema = vote.getId_tema();
+
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(new Runnable() {
                     @Override
@@ -83,7 +86,7 @@ public class MyAdapterVote extends RecyclerView.Adapter {
                                 voteActivity.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(v.getContext(),"", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(v.getContext(),"Voto carregado com sucesso", Toast.LENGTH_LONG).show();
                                     }
                                 });
                             }else{
@@ -102,8 +105,8 @@ public class MyAdapterVote extends RecyclerView.Adapter {
                         }
                     }
                 });
-            }
-        });
+        }});
+
 
     }
 
