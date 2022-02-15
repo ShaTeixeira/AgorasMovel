@@ -1,4 +1,5 @@
 <h1 align="center">Ágoras: plataforma de debates, para desenvolvimento da capacidade argumentativa.</h1>
+<img align="center" src="preview.png" />
 
 <p align="center">
   <a href="#objetivo">Objetivo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
